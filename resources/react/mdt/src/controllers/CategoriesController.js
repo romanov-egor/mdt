@@ -1,9 +1,12 @@
+import RequestController from '../controllers/RequestController'
 
 /**
  * Categories controller
  */
-class Categories {
+class Categories extends RequestController {
    constructor () {
+      super();
+
       this.categories = this.makeCat();
 
       this.dispatcherObj = {
@@ -68,7 +71,18 @@ class Categories {
       return this.dispatcherObj;
    }
 
+   getCategoriesCallback (data) {
+      console.log (data);
+      return data;
+   }
+
    makeCat () {
+      this.setUrl('http://localhost:8080/mdt/category/getAllCategories');
+      this.setCallback(this.getCategoriesCallback.bind(this));
+      return this.makeRequest();
+   }
+
+   /*makeCat () {
       return [
          {
             id: 0,
@@ -179,7 +193,7 @@ class Categories {
             title: 'Категория 10',
          }
       ]
-   }
+   }*/
 
    getCategories () {
       return this.categories;
@@ -187,4 +201,4 @@ class Categories {
 
 }
 
-export default new Categories();
+export default Categories;

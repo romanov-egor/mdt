@@ -40,5 +40,5 @@ class App extends Component {
 
 export default connect(
    state => ({ stateStore: state }),
-   dispatch => (CategoriesController.setGetDispatch(dispatch))
+   dispatch => (new CategoriesController().setGetDispatch(dispatch))
 )(App);
