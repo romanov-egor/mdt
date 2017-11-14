@@ -65,7 +65,7 @@ class Tasks extends Component {
    }
 
    makeTimeTasksView (stateStore, items) {
-      let tasks = CategoriesController.makeCat();
+      let tasks = new CategoriesController().makeCat();
       let time = stateStore.choosenDay;
       let tasksTime = [];
 
@@ -93,7 +93,7 @@ class Tasks extends Component {
    }
 
    makeDefaultTasksView (stateStore) {
-      let tasks = CategoriesController.makeCat();
+      let tasks = new CategoriesController().makeCat();
       let category = stateStore.choosenCategory;
 
       if (category === undefined) {
@@ -131,5 +131,5 @@ class Tasks extends Component {
 
 export default connect(
    state => ({ stateStore: state }),
-   dispatch => (CategoriesController.setGetDispatch(dispatch))
+   dispatch => (new CategoriesController().setGetDispatch(dispatch))
 )(Tasks);

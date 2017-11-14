@@ -16,12 +16,12 @@ class Categories extends Component {
    }
 
    makeCategoriesView () {
-      const categories = CategoriesController.getCategories();
+      const categoriesController = new CategoriesController();
       const result = [];
       const choosenCategory = +this.props.stateStore.categoryReducer.choosenCategory;
       let cssClassItem;
 
-      categories.map((item, key) => {
+      categoriesController.makeCat().map((item, key) => {
          cssClassItem = choosenCategory === item.id ? 'choosen' : '';
          result.push(
             <li key={key}>
@@ -53,5 +53,5 @@ class Categories extends Component {
 
 export default connect(
    state => ({ stateStore: state }),
-   dispatch => (CategoriesController.setGetDispatch(dispatch))
+   dispatch => (new CategoriesController().setGetDispatch(dispatch))
 )(Categories);
