@@ -8,7 +8,7 @@ public class TaskWebModel {
 
     private Long categoryId;
 
-    private  Boolean done;
+    private boolean done;
 
     public TaskWebModel() {
     }
@@ -37,11 +37,11 @@ public class TaskWebModel {
         this.categoryId = categoryId;
     }
 
-    public Boolean getDone() {
+    public boolean getDone() {
         return done;
     }
 
-    public void setDone(Boolean done) {
+    public void setDone(boolean done) {
         this.done = done;
     }
 }

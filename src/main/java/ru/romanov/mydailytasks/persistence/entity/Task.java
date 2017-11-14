@@ -17,7 +17,7 @@ public class Task {
     private Long categoryId;
 
     @Column
-    private Boolean done;
+    private boolean done;
 
     public Long getId() {
         return id;
@@ -43,11 +43,11 @@ public class Task {
         this.categoryId = categoryId;
     }
 
-    public Boolean getDone() {
+    public boolean getDone() {
         return done;
     }
 
-    public void setDone(Boolean done) {
+    public void setDone(boolean done) {
         this.done = done;
     }
 }
