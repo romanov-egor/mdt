@@ -25,6 +25,7 @@ public class TaskServiceImpl implements TaskService {
 
         task.setText(taskWebModel.getText());
         task.setCategoryId(taskWebModel.getCategoryId());
+        task.setDone(taskWebModel.getDone());
 
         taskRepository.save(task);
         return Converter.toWebModel(task);
@@ -37,6 +38,7 @@ public class TaskServiceImpl implements TaskService {
 
         task.setText(taskWebModel.getText());
         task.setCategoryId(taskWebModel.getCategoryId());
+        task.setDone(taskWebModel.getDone());
 
         return Converter.toWebModel(task);
     }
