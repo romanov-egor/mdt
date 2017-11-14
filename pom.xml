@@ -67,7 +67,7 @@
   </dependencies>
 
   <build>
-
+    <finalName>mdt</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
