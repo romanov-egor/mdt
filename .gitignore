@@ -1,0 +1,8 @@
+/target
+/data/*
+/.idea
+mdt.iml
+/resources/react/mdt/bulld
+/resources/react/mdt/node
+/resources/react/mdt/node-modules
+

@@ -1,0 +1,68 @@
+section.main-block {
+   position: absolute;
+   width: 100%;
+   min-width: 1280px;
+   height: 500px;
+   display: flex;
+   justify-content: center;
+   z-index: 0;
+}
+
+.main-block .default {
+   flex-basis: 25%;
+   padding: 1%;
+   max-width: 350px;
+   min-width: 265px;
+   overflow-y: scroll;
+   margin-top: 50px;
+   border: 1px solid #DFDFDF;
+}
+
+.main-block .default::-webkit-scrollbar {
+   width: 0;
+}
+
+.main-block .default ul {
+   margin: 0;
+   padding: 0;
+}
+
+.pop-up-background {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: #999;
+   opacity: 0.5;
+   z-index: 10;
+}
+
+.pop-up {
+   z-index: 100;
+   position: absolute;
+   width: 400px;
+   top: 100px;
+   left: 750px;
+   padding: 10px;
+   background-color: white;
+}
+
+.pop-up .title {
+   width: 100%;
+   text-align: center;
+   font-size: 23px;
+}
+
+.pop-up .changedText {
+   text-align: center;
+   width: 100%;
+   margin-top: 20px;
+   padding-bottom: 10px;
+}
+
+.pop-up .changedText input {
+   width: 90%;
+   height: 100%;
+   padding: 1%;
+   margin: 0 auto;
+   font-size: 18px;
+}
