@@ -47,6 +47,12 @@ public class CategoryRest {
         return new ResponseEntity<CategoryWebModel>(result, HttpStatus.OK);
     }
 
+    @RequestMapping(path = "/getAllCategories", method = RequestMethod.GET)
+    public ResponseEntity<List<CategoryWebModel>> getAllCategories() {
+        List<CategoryWebModel> result = categoryService.getAll();
+        return new ResponseEntity<List<CategoryWebModel>>(result, HttpStatus.OK);
+    }
+
     @RequestMapping(path = "/getAllTasksByCategory", method = RequestMethod.GET)
     public ResponseEntity<List<TasksByCategoryWebModel>> getAllTasksByCategory() {
         List<CategoryWebModel> categoryWebModels = categoryService.getAll();
