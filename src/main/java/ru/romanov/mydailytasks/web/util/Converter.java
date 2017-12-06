@@ -5,12 +5,19 @@ import ru.romanov.mydailytasks.persistence.entity.Task;
 import ru.romanov.mydailytasks.web.model.CategoryWebModel;
 import ru.romanov.mydailytasks.web.model.TaskWebModel;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class Converter {
 
     public static TaskWebModel toWebModel(Task task) {
         TaskWebModel taskWebModel = new TaskWebModel();
         taskWebModel.setId(task.getId());
         taskWebModel.setText(task.getText());
+        taskWebModel.setDone(task.isDone());
+        taskWebModel.setScheduled(task.isScheduled());
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        taskWebModel.setScheduleDate(dateFormat.format(task.getScheduleDate()));
         taskWebModel.setCategoryId(task.getCategoryId());
         return taskWebModel;
     }

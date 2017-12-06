@@ -9,9 +9,9 @@ import ru.romanov.mydailytasks.service.TaskService;
 import ru.romanov.mydailytasks.web.model.CategoryWebModel;
 import ru.romanov.mydailytasks.web.model.TaskWebModel;
 import ru.romanov.mydailytasks.web.model.TasksByCategoryWebModel;
+import ru.romanov.mydailytasks.web.model.TasksByDateWebModel;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping(path = "/category")
@@ -61,9 +61,36 @@ public class CategoryRest {
             TasksByCategoryWebModel tasksByCategoryWebModel = new TasksByCategoryWebModel();
             tasksByCategoryWebModel.setId(categoryWebModel.getId());
             tasksByCategoryWebModel.setTitle(categoryWebModel.getTitle());
-            tasksByCategoryWebModel.setTasks(taskService.getAllByCategory(categoryWebModel.getId()));
+            tasksByCategoryWebModel.setTasks(taskService.getAllByCategoryIdAndScheduled(categoryWebModel.getId(), false));
             tasksByCategoryWebModels.add(tasksByCategoryWebModel);
         }
         return new ResponseEntity<List<TasksByCategoryWebModel>>(tasksByCategoryWebModels, HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/getAllTasksByCategory/{id}", method = RequestMethod.GET)
+    public ResponseEntity<List<TaskWebModel>> getAllTasksByCategoryId(@PathVariable Long id) {
+        List<TaskWebModel> taskWebModels = taskService.getAllByCategoryIdAndScheduled(id, false);
+        return new ResponseEntity<List<TaskWebModel>>(taskWebModels, HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/getAllTasksByDate", method = RequestMethod.GET)
+    public ResponseEntity<List<TasksByDateWebModel>> getAllTasksByDate() {
+        List<TaskWebModel> taskWebModels = taskService.getAllByScheduled(true);
+        Collections.sort(taskWebModels, Comparator.comparing(TaskWebModel::getScheduleDate,
+                Comparator.nullsLast(Comparator.naturalOrder())));
+        taskWebModels.removeIf(p -> p.getScheduleDate() == null);
+        List<TasksByDateWebModel> tasksByDateWebModels = new ArrayList<TasksByDateWebModel>();
+        for (TaskWebModel taskWebModel : taskWebModels) {
+            Optional<TasksByDateWebModel> tasksByDateWebModel = tasksByDateWebModels.stream().filter(
+                    p -> p.getDate().equals(taskWebModel.getScheduleDate())).findFirst();
+            if (tasksByDateWebModel.isPresent()) {
+                tasksByDateWebModel.get().getTasks().add(taskWebModel);
+            } else {
+                TasksByDateWebModel newTasksByDateWebModel = new TasksByDateWebModel(taskWebModel.getScheduleDate());
+                newTasksByDateWebModel.getTasks().add(taskWebModel);
+                tasksByDateWebModels.add(newTasksByDateWebModel);
+            }
+        }
+        return new ResponseEntity<List<TasksByDateWebModel>>(tasksByDateWebModels, HttpStatus.OK);
     }
 }

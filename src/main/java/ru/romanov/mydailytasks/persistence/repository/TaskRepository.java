@@ -8,4 +8,8 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
     List<Task> findByCategoryId(Long categoryId);
+
+    List<Task> findByScheduled(boolean scheduled);
+
+    List<Task> findByCategoryIdAndScheduled(Long categoryId, boolean scheduled);
 }

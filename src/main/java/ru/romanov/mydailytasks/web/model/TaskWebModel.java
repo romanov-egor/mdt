@@ -1,5 +1,7 @@
 package ru.romanov.mydailytasks.web.model;
 
+import java.util.Date;
+
 public class TaskWebModel {
 
     private Long id;
@@ -9,6 +11,10 @@ public class TaskWebModel {
     private Long categoryId;
 
     private boolean done;
+
+    private boolean scheduled;
+
+    private String scheduleDate;
 
     public TaskWebModel() {
     }
@@ -37,11 +43,27 @@ public class TaskWebModel {
         this.categoryId = categoryId;
     }
 
-    public boolean getDone() {
+    public boolean isDone() {
         return done;
     }
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public boolean isScheduled() {
+        return scheduled;
+    }
+
+    public void setScheduled(boolean scheduled) {
+        this.scheduled = scheduled;
+    }
+
+    public String getScheduleDate() {
+        return scheduleDate;
+    }
+
+    public void setScheduleDate(String scheduleDate) {
+        this.scheduleDate = scheduleDate;
     }
 }

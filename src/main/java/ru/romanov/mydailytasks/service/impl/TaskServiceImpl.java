@@ -9,6 +9,9 @@ import ru.romanov.mydailytasks.service.TaskService;
 import ru.romanov.mydailytasks.web.model.TaskWebModel;
 import ru.romanov.mydailytasks.web.util.Converter;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,12 +23,15 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     @Transactional
-    public TaskWebModel create(TaskWebModel taskWebModel) {
+    public TaskWebModel create(TaskWebModel taskWebModel) throws ParseException {
         Task task = new Task();
 
         task.setText(taskWebModel.getText());
         task.setCategoryId(taskWebModel.getCategoryId());
-        task.setDone(taskWebModel.getDone());
+        task.setDone(taskWebModel.isDone());
+        task.setScheduled(taskWebModel.isScheduled());
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        task.setScheduleDate(dateFormat.parse(taskWebModel.getScheduleDate()));
 
         taskRepository.save(task);
         return Converter.toWebModel(task);
@@ -33,12 +39,15 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     @Transactional
-    public TaskWebModel update(TaskWebModel taskWebModel) {
+    public TaskWebModel update(TaskWebModel taskWebModel) throws ParseException {
         Task task = taskRepository.findOne(taskWebModel.getId());
 
         task.setText(taskWebModel.getText());
         task.setCategoryId(taskWebModel.getCategoryId());
-        task.setDone(taskWebModel.getDone());
+        task.setDone(taskWebModel.isDone());
+        task.setScheduled(taskWebModel.isScheduled());
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        task.setScheduleDate(dateFormat.parse(taskWebModel.getScheduleDate()));
 
         return Converter.toWebModel(task);
     }
@@ -66,6 +75,20 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public List<TaskWebModel> getAllByCategory(Long categoryId) {
         List<Task> tasks = taskRepository.findByCategoryId(categoryId);
+        return tasks.stream().map(Converter::toWebModel).collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional
+    public List<TaskWebModel> getAllByScheduled(boolean scheduled) {
+        List<Task> tasks = taskRepository.findByScheduled(scheduled);
+        return tasks.stream().map(Converter::toWebModel).collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional
+    public List<TaskWebModel> getAllByCategoryIdAndScheduled(Long categoryId, boolean scheduled) {
+        List<Task> tasks = taskRepository.findByCategoryIdAndScheduled(categoryId, scheduled);
         return tasks.stream().map(Converter::toWebModel).collect(Collectors.toList());
     }
 }
