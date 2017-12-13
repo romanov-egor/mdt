@@ -1,0 +1,8 @@
+.defaultBlock__one-item__title.taskDone {
+   text-decoration: line-through;
+}
+.tasks .defaultBlock__one-item__buttons .delete-item,
+.tasks .defaultBlock__one-item__buttons .done-item {
+   width: 25px;
+   height: 25px;
+}

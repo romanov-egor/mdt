@@ -4,201 +4,210 @@ import RequestController from '../controllers/RequestController'
  * Categories controller
  */
 class Categories extends RequestController {
-   constructor () {
-      super();
-
-      this.categories = this.makeCat();
+   constructor (props) {
+      super(props);
 
       this.dispatcherObj = {
          onChoosenCategory: this.onChoosenCategory.bind(this),
-         onDeleteTask: this.onDeleteTask.bind(this),
-         onChooseDay: this.onChooseDay.bind(this),
-         onEditTask: this.onEditTask.bind(this),
-         hidePopUp: this.hidePopUp.bind(this),
-         onDoneTask: this.onDoneTask.bind(this),
-         onChangeText: this.onChangeText.bind(this)
+         setCategoryNameForEdit: this.setCategoryNameForPopUp.bind(this),
+         showPopUp: this.showPopUp.bind(this),
+         clearTaskListBlock: this.clearTaskListBlock.bind(this)
       }
    }
 
-   onChangeText (valueText) {
+   clearTaskListBlock () {
       this.dispatch({
-         type: 'TASK_CHANGED_TEXT',
-         payload: valueText
+         type: 'UNCHOOSE_CATEGORY'
       });
    }
 
-   onDoneTask (idCategory) {
+   /**
+    * Set category name on pop-up input
+    * @param {String} categoryName
+    */
+   setCategoryNameForPopUp (categoryName) {
       this.dispatch({
-         type: 'TASK_DONE',
-         payload: +idCategory
+         type: 'SET_POPUP_INPUT_TEXT',
+         payload: categoryName
       });
    }
 
-   hidePopUp () {
-      this.dispatch({ type: 'HIDE_POPUP' });
-   }
-
-   onEditTask (idTask) {
+   /**
+    * Show Pop-up for category editor. It must set to store the type of changes.
+    * Iyt can be add new category or edit that.
+    * It will be called onSaveMethod after request for saving changes
+    * @param  {String} popUpType - addCategory/editCategory
+    * @param  {Function} onSaveMethod
+    */
+   showPopUp (popUpType, onSaveMethod) {
       this.dispatch({
-         type: 'CHOOSEN_TASK_FOR_EDIT',
-         payload: +idTask
+         type: 'SHOW_POPUP',
+         payload: [popUpType, onSaveMethod]
       });
    }
 
-   onChooseDay (dayNum) {
-      this.dispatch({
-         type: 'DAY_CHOOSE',
-         payload: +dayNum
-      });
-   }
-
-   onDeleteTask (idCategory) {
-      this.dispatch({
-         type: 'TASK_DELTED',
-         payload: +idCategory
-      });
-   }
-
+   /**
+    * Send event that category choosen to update tasks list
+    * @param  {JSON} data
+    */
    onChoosenCategory (idCategory) {
+      this.getCategoryTasks(idCategory);
       this.dispatch({
          type: 'CATEGORY_CHOOSE',
          payload: idCategory
       });
    }
 
+   /**
+    * Send event that category loaded to update category list, then hide pop-up
+    * @param  {JSON} data
+    */
+   makeCategoriesCallback (data) {
+      this.dispatch({
+         type: 'CATEGORY_LOADED',
+         payload: data || []
+      });
+   }
+
+   /**
+    * Send event that category added to update category list, then hide pop-up
+    * @param  {JSON} data
+    */
+   saveCategoriesCallback (data) {
+      this.dispatch({
+         type: 'CATEGORY_ADDED',
+         payload: data
+      });
+      this.dispatch({
+         type: 'HIDE_POPUP'
+      });
+   }
+
+   /**
+    * Send event that category was updated to update category list, then hide pop-up
+    * @param  {JSON} data
+    */
+   editCategoriesCallback (data) {
+      this.dispatch({
+         type: 'CATEGORY_EDITED',
+         payload: data
+      });
+      this.dispatch({
+         type: 'HIDE_POPUP'
+      });
+   }
+
+   /**
+    * Send event that category deleted to update list, then hide pop-up
+    * @param  {JSON} data
+    */
+   deleteCategoriesCallback (data) {
+      this.dispatch({
+         type: 'CATEGORY_DELETED',
+         payload: data
+      });
+      this.dispatch({
+         type: 'HIDE_POPUP'
+      });
+   }
+
+   /**
+    * Send data with tasks array to store
+    * @param {Array} data - tasks array
+    */
+   getCategoryTasksCallback (data) {
+      this.dispatch({
+         type: 'ON_LOAD_TASKS_BY_CATEGORY',
+         payload: data
+      });
+   }
+
+   /**
+    * Load all categories as soon as page loaded
+    */
+   makeCat () {
+      this.url('http://localhost:8080/mdt/category/getAllCategories');
+      this.resopnseType('GET');
+      this.makeRequest().then(
+         result => this.makeCategoriesCallback(result),
+         error => console.log (error)
+      );
+   }
+
+   /**
+    * Add new Category. Make a request and send data to callback
+    * @param {String} name - category name
+    */
+   addCategory (name) {
+      this.url('http://localhost:8080/mdt/category/create');
+      this.resopnseType('POST');
+
+      this.makeRequest({
+         id: '',
+         title: name
+      }).then(
+         result=>this.saveCategoriesCallback(result),
+         error => console.log (error)
+      );
+   }
+
+   /**
+    * Edit category name. Make a request and send data to callback
+    * @param  {String} name - category name
+    * @param  {Int} categoryId - category id
+    */
+   editCategory (name, categoryId) {
+      this.url('http://localhost:8080/mdt/category/update');
+      this.resopnseType('POST');
+
+      this.makeRequest({
+         id: categoryId,
+         title: name
+      }).then(
+         result=>this.editCategoriesCallback(result),
+         error => console.log (error)
+      );
+   }
+
+   /**
+    * Delete category. Make a request and send data to callback
+    * @param  {Int} categoryId - category id
+    */
+   deleteCategory (categoryId) {
+      this.url('http://localhost:8080/mdt/category/delete');
+      this.resopnseType('POST');
+
+      this.makeRequest({
+         id: categoryId,
+         title: ''
+      }).then(
+         result=>this.deleteCategoriesCallback(result),
+         error => console.log (error)
+      );
+   }
+
+   /**
+    * Get All tasks by category
+    * @param  {Int} categoryId
+    */
+   getCategoryTasks (categoryId) {
+      this.url('http://localhost:8080/mdt/category/getAllTasksByCategory/' + categoryId);
+      this.resopnseType('GET');
+
+      this.makeRequest().then(
+         result=>this.getCategoryTasksCallback(result),
+         error => console.log (error)
+      );
+   }
+
+   /**
+    * set and get dispatch object
+    * @param {Object} dispatch
+    */
    setGetDispatch (dispatch) {
       this.dispatch = dispatch;
       return this.dispatcherObj;
    }
-
-   getCategoriesCallback (data) {
-      console.log (data);
-      return data;
-   }
-
-   makeCat () {
-      this.setUrl('http://localhost:8080/mdt/category/getAllCategories');
-      this.setCallback(this.getCategoriesCallback.bind(this));
-      return this.makeRequest();
-   }
-
-   /*makeCat () {
-      return [
-         {
-            id: 0,
-            title: 'Категория 1',
-            tasks: [
-               {
-                  id: 10,
-                  text: 'Задача номер 1. Текст',
-                  done: false
-               },
-               {
-                  id: 11,
-                  text: 'Задача номер 2. Текст',
-                  done: false
-               },
-               {
-                  id: 12,
-                  text: 'Задача номер 3. Текст',
-                  done: false
-               },
-               {
-                  id: 13,
-                  text: 'Задача номер 4. Текст',
-                  done: false
-               },
-            ]
-         },
-         {
-            id: 1,
-            title: 'Категория 2',
-            tasks: [
-               {
-                  id: 20,
-                  text: 'Задача номер 10. Текст',
-                  done: false
-               },
-               {
-                  id: 21,
-                  text: 'Задача номер 20. Текст',
-                  done: false
-               },
-               {
-                  id: 22,
-                  text: 'Задача номер 30. Текст',
-                  done: false
-               },
-               {
-                  id: 23,
-                  text: 'Задача номер 40. Текст',
-                  done: false
-               },
-            ]
-         },
-         {
-            id: 2,
-            title: 'Категория 3',
-            tasks: [
-               {
-                  id: 30,
-                  time: 3,
-                  text: 'Задача номер 101. Текст',
-                  done: false
-               },
-               {
-                  id: 31,
-                  time: 3,
-                  text: 'Задача номер 201. Текст',
-                  done: false
-               },
-               {
-                  id: 32,
-                  text: 'Задача номер 301. Текст',
-                  done: false
-               },
-               {
-                  id: 33,
-                  text: 'Задача номер 401. Текст',
-                  done: false
-               },
-            ]
-         },
-         {
-            id: 3,
-            title: 'Категория 4',
-         },
-         {
-            id: 4,
-            title: 'Категория 5',
-         },
-         {
-            id: 5,
-            title: 'Категория 6',
-         },
-         {
-            id: 6,
-            title: 'Категория 7',
-         },
-         {
-            id: 7,
-            title: 'Категория 8',
-         },
-         {
-            id: 8,
-            title: 'Категория 9',
-         },
-         {
-            id: 9,
-            title: 'Категория 10',
-         }
-      ]
-   }*/
-
-   getCategories () {
-      return this.categories;
-   }
-
 }
 
-export default Categories;
+export default new Categories();

@@ -1,0 +1,65 @@
+.full-block {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   z-index:99999999;
+}
+.pop-up-background {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: #999;
+   opacity: 0.5;
+   z-index: 10;
+}
+
+.pop-up {
+   z-index: 100;
+   position: relative;
+   width: 400px;
+   margin: 200px auto;
+   padding: 10px;
+   background-color: white;
+}
+
+.pop-up .title {
+   width: 100%;
+   text-align: center;
+   font-size: 23px;
+}
+
+.pop-up .changedText {
+   text-align: center;
+   width: 100%;
+   margin-top: 20px;
+   padding-bottom: 10px;
+}
+
+.pop-up .changedText input {
+   width: 90%;
+   height: 100%;
+   padding: 1%;
+   margin: 0 auto;
+   font-size: 18px;
+}
+
+.save-btn {
+   text-align: center;
+   width: 120px;
+   margin: 10px auto;
+   font-weight: 700;
+   text-decoration: none;
+   padding: 10px;
+   color: white;
+   border-radius: 3px;
+   background: #aaa;
+   box-shadow: 0 -3px #999 inset;
+   transition: 0.2s;
+   border: 1px solid #aaa;
+}
+.save-btn:hover {
+   cursor: pointer;
+   color: black;
+   background: none;
+   box-shadow: 0 -3px #efefef inset;
+}

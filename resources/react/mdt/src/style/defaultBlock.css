@@ -1,0 +1,32 @@
+.defaultBlock__one-item {
+   border: 1px solid #CCC;
+   height: 40px;
+   padding-left: 2%;
+   display: flex;
+   justify-content: center;
+}
+.defaultBlock__one-item * {
+   box-sizing: border-box;
+}
+.defaultBlock__one-item:hover {
+   background-color: #EFEFEF;
+   cursor: pointer;
+}
+.defaultBlock__one-item.choosen {
+   background-color: #EFEFEF;
+}
+.defaultBlock__one-item__title {
+   flex-basis: 82%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+}
+.defaultBlock__one-item__buttons {
+   flex-basis: 18%;
+}
+.defaultBlock__one-item__buttons > div {
+   display: flex;
+   height: 100%;
+   align-items: center;
+   justify-content: space-between;
+}

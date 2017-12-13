@@ -1,34 +1,55 @@
-import $ from 'jquery';
+import GeneralController from './GeneralController'
 
 /**
  * Request controller
  */
-class Request {
+class Request  extends GeneralController {
    constructor () {
-      this._dataType = 'json';
-      this._cache = false;
+      super();
+
+      this._xhr = new XMLHttpRequest();
+      this._responseType = 'POST';
    }
 
-   setUrl (url) {
-      this.url = url;
+   url (value) {
+      if (value) {
+         this._url = value;
+      }
+      return this._url;
    }
 
-   setCallback (callback) {
-      this._callback = callback;
+   resopnseType (value) {
+      if (value) {
+         this._responseType = value;
+      }
+      return this._responseType;
    }
 
-   makeRequest () {
-      return $.ajax({
-         url: this.url,
-         dataType: this._dataType,
-         cache: this._cache,
-         success: this._callback.bind(this),
-         error: this._defErrback.bind(this)
+   makeRequest (data) {
+      return new Promise((resolve, reject) => {
+         this._xhr.open(this.resopnseType(), this.url(), true);
+         this._xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+         this._xhr.onload = function () {
+            if (this.status === 200) {
+               resolve(JSON.parse(this.response));
+            } else {
+               let error = new Error(this.statusText);
+               error.code = this.status;
+               reject(error);
+            }
+         }
+
+         this._xhr.onerror = function() {
+            reject(new Error("Network Error"));
+         };
+
+         if (data) {
+            this._xhr.send(JSON.stringify(data));
+         } else {
+            this._xhr.send();
+         }
       });
-   }
-
-   _defErrback (message) {
-      console.log (message);
    }
 }
 

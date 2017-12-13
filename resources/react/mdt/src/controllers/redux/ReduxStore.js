@@ -5,12 +5,18 @@ import { createStore, combineReducers } from 'redux'
  * Reducers
  */
 import categoryReducer from './reducers/categoryReducer'
+import taskReducer from './reducers/taskReducer'
+import calendarReducer from './reducers/calendarReducer'
+import popUpReducer from './reducers/popUpReducer'
 
 class Store {
    constructor () {
       this.store = createStore(
          combineReducers({
-            categoryReducer: categoryReducer
+            categoryReducer: categoryReducer,
+            taskReducer: taskReducer,
+            calendarReducer: calendarReducer,
+            popUpReducer: popUpReducer
          }),
          window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
       );

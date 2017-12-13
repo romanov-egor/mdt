@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import CategoriesController from '../controllers/CategoriesController'
+import TasksController from '../controllers/TasksController'
+import '../style/tasks.css';
 
 /**
  * Компонент отрисовывает задачи
@@ -12,118 +13,237 @@ class Tasks extends Component {
 
    constructor () {
       super();
+      this._dargElement = false;
+      this._timeout = false;
    }
 
-   doneItem (e) {
-      this.props.onDoneTask(e.target.dataset.itemid);
+   /**
+    * Task done, send request
+    * @param  {Object} e
+    */
+   taskDoneOrNot (e) {
+      let target = e.target;
+      let taskId = +target.getAttribute('data-itemid');
+      let taskObj = this.taskFinder(taskId);
+      taskObj['done'] = !taskObj['done'];
+      TasksController.editTask(taskObj);
    }
 
-   editItem (e) {
-      this.props.onEditTask(e.target.dataset.itemid);
+   /**
+    * Delete Task
+    * @param  {Object} e
+    */
+   deleteTask (e) {
+      let result = window.confirm('Вы уверены');
+      if (result) {
+         let categoryId = e.target.getAttribute('data-itemid');
+         TasksController.deleteTask(categoryId);
+      }
    }
 
-   deleteItem (e) {
-      this.props.onDeleteTask(e.target.dataset.itemid);
+   /**
+    * Add task
+    * @param {String} text
+    */
+   addTask (text) {
+      if (text) {
+         TasksController.addTask({
+            id: null,
+            text: text,
+            categoryId: +this.props.stateStore.categoryReducer.choosenCategory,
+            done: false,
+            scheduled: true,
+            scheduleDate: new Date().toISOString().slice(0,10)
+         });
+      }
    }
 
-   makeItemsList (stateStore, items) {
-      let result = [];
-      let deletedTasks = stateStore.deletedTasks;
-      let doneTasks = stateStore.doneTasks;
-      let changedTaskId = stateStore.choosenTaskForEdit;
-      let newTaskText = stateStore.newText;
-      let cssClassText, itemText;
+   /**
+    * Show pop up block for add task
+    * @param {String} type - type to show
+    * @param  {Oject} e
+    */
+   showPopUp (type, e) {
+      this.props.showPopUp(type, this.addTask.bind(this));
+   }
 
-      items.map((item, key) => {
-         if (!deletedTasks.includes(item.id)) {
-            cssClassText = doneTasks.includes(item.id) ? 'line-through' : '';
-            itemText = item.id !== changedTaskId ? item.text : (newTaskText ? newTaskText : item.text);
-
-            result.push(
-               <div className="li-item" key={key + this.props.type}>
-                  <div
-                  data-itemid={ item.id }
-                  className="one-item">
-                     <div className={ 'item-text ' + cssClassText }>
-                        { itemText }
-                     </div>
-                     <div className="item-buttons">
-                        <div className="edit-item" data-itemid={ item.id } onClick={ this.editItem.bind(this) }>
-                        </div>
-                        <div className="done-item" data-itemid={ item.id } onClick={ this.doneItem.bind(this) } >
-                        </div>
-                        <div className="delete-item" data-itemid={ item.id } onClick={ this.deleteItem.bind(this) } >
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            );
+   /**
+    * Find task object in redux store by id
+    * @param  {Int} taskId
+    * @return {Object} - task object
+    */
+   taskFinder (taskId) {
+      const tasks = this.props.stateStore.taskReducer.categoryTasks;
+      let taskObj;
+      tasks.forEach((item, key)=> {
+         if (!taskObj && item['id'] === taskId) {
+            taskObj = item;
          }
       });
 
+      return taskObj;
+   }
+
+   /**
+    * Edit task name
+    * @return {String} name
+    */
+   editTask (name) {
+      if (name) {
+         let taskId = +this.state.editTaskId;
+         let taskObj = this.taskFinder(taskId);
+         taskObj['text'] = name;
+         TasksController.editTask(taskObj);
+      }
+   }
+
+   /**
+    * Open pop-up for edit task
+    * @param  {Object} e
+    */
+   onTaskClick (type, e) {
+      if (this._dargElement) {
+         this._dargElement = false;
+         return;
+      }
+      let target = e.target;
+      if (target.getAttribute('data-blocktype') === 'btn') {
+         return;
+      }
+      target = TasksController.findParentElemtByClassName(e.target, 'defaultBlock__one-item', 3);
+      target = target.querySelector('.defaultBlock__one-item__title');
+      let taskId = target.getAttribute('data-itemid');
+      let taskName = target.innerText;
+      this.setState({'editTaskId': taskId});
+      this.props.setTaskNameForEdit(taskName);
+      this.props.showPopUp(type, this.editTask.bind(this));
+   }
+
+   /**
+    * Show buttons
+    * @param  {Object} e
+    */
+   onTaskMouseOver (e) {
+      let target = TasksController.findParentElemtByAttribute(e.target, 'data-itemid', 2);
+      let taskKey = target.getAttribute('data-itemid');
+      let stateButtons = this.state ? this.state.buttons : {};
+      stateButtons[taskKey] = e.type !== 'mouseleave';
+      this.setState({'buttons': stateButtons});
+   }
+
+   /**
+    * Mouse down on task element
+    * Only on category tasks
+    * @param  {Object} e
+    */
+   onMouseDown (e) {
+      if (this.props.type === 'category' && !this._timeout) {
+         let target = e.target;
+         this._timeout = setTimeout(function () {
+            this.startDrag(target);
+         }.bind(this), 1000);
+      }
+   }
+
+   startDrag (target) {
+      this._dargElement = true;
+      let oneTask = TasksController.findParentElemtByClassName(target, 'defaultBlock__one-item', 3);
+      oneTask.classList.add('drag-element');
+      this.props.addDragElement(oneTask);
+   }
+
+   /**
+    * Mouse up on task element
+    * @param  {Object} e
+    */
+   onMouseUp (e) {
+      if (this._timeout) {
+         clearTimeout(this._timeout);
+         this._timeout = null;
+      }
+   }
+
+   /**
+    * Format data from BL, make tasks view
+    * @param  {Array} tasks
+    * @return {JSX-Array}
+    */
+   makeTasksView (tasks) {
+      let result = [];
+      let cssClassDone = '';
+      tasks.map((item, key) => {
+         cssClassDone = item['done'] ? 'taskDone' : '';
+         result.push(
+            <div
+            title={ item.text }
+            className="defaultBlock__one-item"
+            data-itemid={ item.id }
+            onClick={ this.onTaskClick.bind(this, 'editTask') }
+            onMouseEnter={ this.onTaskMouseOver.bind(this) }
+            onMouseLeave={ this.onTaskMouseOver.bind(this) }
+            onMouseDown={ this.onMouseDown.bind(this) }
+            onMouseUp={ this.onMouseUp.bind(this) }
+            key={ item.id }>
+               <div className={'defaultBlock__one-item__title ' + cssClassDone} data-itemid={ item.id }>
+                  { item.text }
+               </div>
+               <div className="defaultBlock__one-item__buttons">
+                  {
+                     this.props.type === 'category' && this.state && this.state.buttons[item.id] &&
+                     <div>
+                        <div
+                        className={ (item['done'] && 'not-done-item') || 'done-item' }
+                        data-itemid={ item.id }
+                        data-blocktype='btn'
+                        onClick={ this.taskDoneOrNot.bind(this) }>
+                        </div>
+                        <div
+                        className="delete-item"
+                        data-blocktype="btn"
+                        data-itemid={ item.id }
+                        onClick={ this.deleteTask.bind(this) }>
+                        </div>
+                     </div>
+                  }
+               </div>
+            </div>
+         );
+         return true;
+      });
       return result;
    }
 
-   makeTimeTasksView (stateStore, items) {
-      let tasks = new CategoriesController().makeCat();
-      let time = stateStore.choosenDay;
-      let tasksTime = [];
-
-      if (time === undefined) {
-         return [];
-      }
-
-      tasks = tasks.filter(function (item, index) {
-         if (item.tasks) {
-            item.tasks.forEach(function (task, i) {
-               if (task.time && task.time === time) {
-                  tasksTime.push(task);
-               }
-            });
-         } else {
-            return false;
-         }
-      });
-
-      if (!tasksTime.length) {
-         return [];
-      }
-
-      return this.makeItemsList(stateStore, tasksTime);
-   }
-
-   makeDefaultTasksView (stateStore) {
-      let tasks = new CategoriesController().makeCat();
-      let category = stateStore.choosenCategory;
-
-      if (category === undefined) {
-         return [];
-      }
-
-      tasks = tasks.filter(function (item, index) {
-         return item.id === +category;
-      });
-
-      if (!tasks[0].tasks) {
-         return [];
-      }
-
-      return this.makeItemsList(stateStore, tasks[0].tasks);
-   }
-
    render() {
-      const stateStore = this.props.stateStore.categoryReducer;
+      const stateStore = this.props.stateStore.taskReducer;
+      const calendarStore = this.props.stateStore.calendarReducer;
       return (
-         <div className="default tasks">
-            <div className="title">Задачи:</div>
-            {
-               this.props.type === 'category' &&
-               this.makeDefaultTasksView(stateStore)
-            }
-            {
-               this.props.type === 'time' &&
-               this.makeTimeTasksView(stateStore)
-            }
+         <div className="defaultBlock tasks">
+            <div className="defaultBlock__title">
+               <div className="defaultBlock__text">
+                  { this.props.type === 'category' && 'Задачи' }
+                  {
+                     this.props.type === 'calendar' && calendarStore.calendarDate &&
+                     (calendarStore.calendarDate.getDate() + '-' + (calendarStore.calendarDate.getMonth() + 1) + '-' + calendarStore.calendarDate.getFullYear())
+                  }
+               </div>
+               {
+                  this.props.type === 'category' && this.props.stateStore.categoryReducer.choosenCategory &&
+                  <div
+                  className="defaultBlock__button add-btn"
+                  onClick={ this.showPopUp.bind(this, 'addTask') }>
+                  </div>
+               }
+            </div>
+            <div className="defaultBlock__items">
+               {
+                  this.props.type === 'category' && stateStore.categoryTasks &&
+                  this.makeTasksView(stateStore.categoryTasks)
+               }
+               {
+                  this.props.type === 'calendar' && stateStore.calendarTasks &&
+                  this.makeTasksView(stateStore.calendarTasks)
+               }
+            </div>
          </div>
       );
    }
@@ -131,5 +251,5 @@ class Tasks extends Component {
 
 export default connect(
    state => ({ stateStore: state }),
-   dispatch => (new CategoriesController().setGetDispatch(dispatch))
+   dispatch => (TasksController.setGetDispatch(dispatch))
 )(Tasks);
