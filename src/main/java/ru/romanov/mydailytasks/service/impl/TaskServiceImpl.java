@@ -30,7 +30,7 @@ public class TaskServiceImpl implements TaskService {
         task.setCategoryId(taskWebModel.getCategoryId());
         task.setDone(taskWebModel.isDone());
         task.setScheduled(taskWebModel.isScheduled());
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         task.setScheduleDate(dateFormat.parse(taskWebModel.getScheduleDate()));
 
         taskRepository.save(task);
@@ -46,7 +46,7 @@ public class TaskServiceImpl implements TaskService {
         task.setCategoryId(taskWebModel.getCategoryId());
         task.setDone(taskWebModel.isDone());
         task.setScheduled(taskWebModel.isScheduled());
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         task.setScheduleDate(dateFormat.parse(taskWebModel.getScheduleDate()));
 
         return Converter.toWebModel(task);

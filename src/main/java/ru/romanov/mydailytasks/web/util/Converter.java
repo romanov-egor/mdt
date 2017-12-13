@@ -16,7 +16,7 @@ public class Converter {
         taskWebModel.setText(task.getText());
         taskWebModel.setDone(task.isDone());
         taskWebModel.setScheduled(task.isScheduled());
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         taskWebModel.setScheduleDate(dateFormat.format(task.getScheduleDate()));
         taskWebModel.setCategoryId(task.getCategoryId());
         return taskWebModel;
