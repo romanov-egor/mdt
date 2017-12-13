@@ -1,0 +1,53 @@
+.defaultBlock__calendar {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+.defaultBlock__calendar * {
+   box-sizing: border-box;
+}
+.defaultBlock__item-day {
+   flex-basis: calc(100%/7);
+   height: 35px;
+   display: flex;
+   background-color: #DFDFDF;
+   border: 1px solid white;
+}
+.defaultBlock__item-day.current {
+   border: 2px solid #ef6767;
+   border-radius: 4px;
+}
+.defaultBlock__item-day.prevNextDays {
+   color: #aaa;
+}
+.defaultBlock__item-day:hover {
+   cursor: pointer;
+}
+.defaultBlock__item-day.prevNextDays:hover {
+   cursor: default;
+}
+.defaultBlock__item-day .day-num {
+   width: auto;
+   margin: auto;
+}
+.calendar .defaultBlock__title .monthName {
+   padding: 0 10px;
+}
+.calendar .defaultBlock__title .prevMonth,
+.calendar .defaultBlock__title .nextMonth {
+   width: 25px;
+   height: 25px;
+   margin-top: 5px;
+   background-size: 100%;
+   background-repeat: no-repeat;
+   background-image: url(../img/arrow.png);
+   cursor: pointer;
+}
+.calendar .defaultBlock__title .prevMonth {
+   -webkit-transform: rotate(180deg);
+   -moz-transform: rotate(180deg);
+   -ms-transform: rotate(180deg);
+   -o-transform: rotate(180deg);
+   transform: rotate(180deg);
+}

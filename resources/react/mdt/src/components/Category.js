@@ -1,51 +1,158 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-
 import CategoriesController from '../controllers/CategoriesController'
+import '../style/defaultBlock.css';
 import '../style/categories.css';
 
 class Categories extends Component {
 
-   constructor () {
-      super();
+   /**
+    * Add category
+    * @param {String} name
+    */
+   addCategory (name) {
+      if (name) {
+         CategoriesController.addCategory(name);
+      }
    }
 
-   onCategoryClick (e) {
-      this.props.onChoosenCategory(e.target.dataset.itemid);
+   /**
+    * Edit category name
+    * @param {String} name
+    */
+   editCategory (name) {
+      if (name) {
+         CategoriesController.editCategory(name, +this.state.editCategoryId);
+      }
    }
 
+   /**
+    * Delete category
+    */
+   deleteCategory (e) {
+      let result = window.confirm('Вы уверены');
+      if (result) {
+         let categoryId = e.target.getAttribute('data-itemid');
+         CategoriesController.deleteCategory(categoryId);
+      }
+   }
+
+   /**
+    * Show pop up block:
+    *    to add category - just send command to open block
+    *    to edit category - save category name in popUp store
+    * @param {String} type - type to show
+    * @param  {Oject} e
+    */
+   showPopUp (type, e) {
+      if (type === 'addCategory') {
+         this.props.showPopUp(type, this.addCategory.bind(this));
+      } else if (type === 'editCategory') {
+         let categoryId = e.target.getAttribute('data-itemid');
+         let categoryName = e.target.parentNode.parentNode.previousElementSibling.innerText;
+         this.setState({'editCategoryId': categoryId});
+         this.props.setCategoryNameForEdit(categoryName);
+         this.props.showPopUp(type, this.editCategory.bind(this));
+      }
+   }
+
+   /**
+    * Get tasks by category
+    * @param {Object} e
+    */
+   onCategoryChoose (e) {
+      let target = e.target;
+      let categoryId = target.getAttribute('data-itemid');
+      if ((!this.state.categoryId || this.state.categoryId !== categoryId)
+         && !target.getAttribute('data-blocktype')) {
+         this.props.onChoosenCategory(categoryId);
+         this.setState({'categoryId': categoryId});
+      } else if (categoryId === this.state.categoryId) {
+         this.setState({'categoryId': null});
+         this.props.clearTaskListBlock();
+      }
+   }
+
+   /**
+    * Show buttons
+    * @param  {Object} e
+    */
+   onCategoryMouseOver (e) {
+      let target = CategoriesController.findParentElemtByAttribute(e.target, 'data-itemid', 2);
+      let categoryKey = target.getAttribute('data-itemid');
+      let stateButtons = this.state ? this.state.buttons : {};
+      stateButtons[categoryKey] = stateButtons[categoryKey] ? !stateButtons[categoryKey] : true;
+      this.setState({'buttons': stateButtons});
+   }
+
+   /**
+    * Make category list view
+    * @return {JSX} view
+    */
    makeCategoriesView () {
-      const categoriesController = new CategoriesController();
-      const result = [];
+      let result = [];
+      const categories = this.props.stateStore.categoryReducer.categories;
       const choosenCategory = +this.props.stateStore.categoryReducer.choosenCategory;
       let cssClassItem;
 
-      categoriesController.makeCat().map((item, key) => {
-         cssClassItem = choosenCategory === item.id ? 'choosen' : '';
-         result.push(
-            <li key={key}>
+      if (!categories || !categories.length) {
+         CategoriesController.makeCat();
+      } else {
+         categories.map((item, key) => {
+            cssClassItem = choosenCategory === item.id ? 'choosen' : '';
+            result.push(
                <div
-                  data-itemid={ item.id }
-                  className={ 'one-item ' + cssClassItem }
-                  onClick={ this.onCategoryClick.bind(this) }
-                  >
-                  { item.title }
+               key={key}
+               data-itemid={ item.id }
+               title={ item.title }
+               className={ 'defaultBlock__one-item ' + cssClassItem }
+               onMouseEnter={ this.onCategoryMouseOver.bind(this) }
+               onMouseLeave={ this.onCategoryMouseOver.bind(this) }
+               onClick={ this.onCategoryChoose.bind(this) } >
+                  <div
+                  className='defaultBlock__one-item__title'
+                  data-itemid={ item.id }>{ item.title }
+                  </div>
+                  <div className='defaultBlock__one-item__buttons'>
+                     {
+                        this.state && this.state.buttons[item.id] &&
+                        <div>
+                           <div
+                           className="edit-item"
+                           data-itemid={ item.id }
+                           data-blocktype='btn'
+                           onClick={ this.showPopUp.bind(this, 'editCategory') }>
+                           </div>
+                           <div
+                           className="delete-item"
+                           data-blocktype='btn'
+                           data-itemid={ item.id }
+                           onClick={ this.deleteCategory.bind(this) }>
+                           </div>
+                        </div>
+                     }
+                  </div>
                </div>
-            </li>
-         );
-      });
+            );
+            return true;
+         });
+      }
 
       return result;
    }
 
    render() {
       return (
-         <div className="default mainCategories">
-            <div className="title">Категории:</div>
-            <ul>
+         <div className="defaultBlock categories">
+            <div className="defaultBlock__title">
+               <div className="defaultBlock__text">Категории</div>
+               <div className="defaultBlock__button add-btn" onClick={ this.showPopUp.bind(this, 'addCategory') }>
+               </div>
+            </div>
+            <div className="defaultBlock__items">
                { this.makeCategoriesView() }
-            </ul>
+            </div>
          </div>
       );
    }
@@ -53,5 +160,5 @@ class Categories extends Component {
 
 export default connect(
    state => ({ stateStore: state }),
-   dispatch => (new CategoriesController().setGetDispatch(dispatch))
+   dispatch => (CategoriesController.setGetDispatch(dispatch))
 )(Categories);

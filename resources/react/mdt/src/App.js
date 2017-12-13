@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+//import logo from './logo.svg'
 import './App.css'
+
+import PopUp from './components/PopUp'
 
 import { connect } from 'react-redux'
 
 import Category from './components/Category'
 import Tasks from './components/Tasks'
 import Calendar from './components/Calendar'
-import PopUp from './components/PopUp'
-
-import CategoriesController from './controllers/CategoriesController'
 
 class App extends Component {
 
@@ -18,20 +17,28 @@ class App extends Component {
    }
 
    render() {
-      const stateStore = this.props.stateStore.categoryReducer;
+      const stateStore = this.props.stateStore.popUpReducer;
+      const taskReducer = this.props.stateStore.taskReducer;
       return (
          <div>
             <section className="main-block">
                <Category />
 
                <Tasks type="category" />
-               <Tasks type="time" />
+               <Tasks type="calendar" />
 
                <Calendar />
             </section>
+
             {
                stateStore.showPopUp &&
-               <PopUp />
+               <PopUp onSaveHandler={ stateStore.onSaveMethod && stateStore.onSaveMethod.bind(this) } />
+            }
+            {
+               taskReducer.dragElement &&
+               <div className='drag-elemt-wrap'>
+                  { taskReducer.dragElement.toString() }
+               </div>
             }
          </div>
       );
@@ -40,5 +47,5 @@ class App extends Component {
 
 export default connect(
    state => ({ stateStore: state }),
-   dispatch => (new CategoriesController().setGetDispatch(dispatch))
+   dispatch => ({})
 )(App);
