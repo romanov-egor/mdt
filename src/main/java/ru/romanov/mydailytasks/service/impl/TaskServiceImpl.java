@@ -12,7 +12,7 @@ import ru.romanov.mydailytasks.web.util.Converter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
+import java.util.List;s
 import java.util.stream.Collectors;
 
 @Component
@@ -30,7 +30,7 @@ public class TaskServiceImpl implements TaskService {
         task.setCategoryId(taskWebModel.getCategoryId());
         task.setDone(taskWebModel.isDone());
         task.setScheduled(taskWebModel.isScheduled());
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         task.setScheduleDate(dateFormat.parse(taskWebModel.getScheduleDate()));
 
         taskRepository.save(task);
@@ -46,7 +46,7 @@ public class TaskServiceImpl implements TaskService {
         task.setCategoryId(taskWebModel.getCategoryId());
         task.setDone(taskWebModel.isDone());
         task.setScheduled(taskWebModel.isScheduled());
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         task.setScheduleDate(dateFormat.parse(taskWebModel.getScheduleDate()));
 
         return Converter.toWebModel(task);
