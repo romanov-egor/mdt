@@ -52,11 +52,11 @@ class CalendarController extends RequestController {
       let tempDate;
 
       result.forEach((item, key)=> {
-         tempDateArray = item['date'].split('.');
-         tempDate = new Date(+tempDateArray[2], +tempDateArray[0]-1, +tempDateArray[1]);
+         tempDateArray = item['date'].split('-');
+         tempDate = new Date(item['date']);
          datesWithTasks.push(tempDate);
 
-         if ((+tempDateArray[0]) === curDate && (+tempDateArray[1]-1) === curMonth && (+tempDateArray[2]) === curYear) {
+         if ((+tempDateArray[2]) === curDate && (+tempDateArray[1]) === curMonth && (+tempDateArray[0]) === curYear) {
             item['tasks'].forEach((task)=> {
                currentTasks.push(task);
             });

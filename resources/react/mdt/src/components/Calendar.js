@@ -82,7 +82,10 @@ class Calendar extends Component {
        * @return {String} css class if we have tasks
        */
       const checkTempDate = function (tempDate) {
+         /*if () {
 
+         }
+         return ;*/
       }
 
       while (startDate <= endDate) {

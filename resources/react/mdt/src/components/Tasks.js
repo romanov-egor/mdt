@@ -52,7 +52,7 @@ class Tasks extends Component {
             text: text,
             categoryId: +this.props.stateStore.categoryReducer.choosenCategory,
             done: false,
-            scheduled: false,
+            scheduled: true,
             scheduleDate: new Date().toISOString().slice(0,10)
          });
       }
