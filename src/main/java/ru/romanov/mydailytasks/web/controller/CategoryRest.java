@@ -61,7 +61,7 @@ public class CategoryRest {
             TasksByCategoryWebModel tasksByCategoryWebModel = new TasksByCategoryWebModel();
             tasksByCategoryWebModel.setId(categoryWebModel.getId());
             tasksByCategoryWebModel.setTitle(categoryWebModel.getTitle());
-            tasksByCategoryWebModel.setTasks(taskService.getAllByCategoryIdAndScheduled(categoryWebModel.getId(), false));
+            tasksByCategoryWebModel.setTasks(taskService.getAllByCategory(categoryWebModel.getId()));
             tasksByCategoryWebModels.add(tasksByCategoryWebModel);
         }
         return new ResponseEntity<List<TasksByCategoryWebModel>>(tasksByCategoryWebModels, HttpStatus.OK);
@@ -69,7 +69,7 @@ public class CategoryRest {
 
     @RequestMapping(path = "/getAllTasksByCategory/{id}", method = RequestMethod.GET)
     public ResponseEntity<List<TaskWebModel>> getAllTasksByCategoryId(@PathVariable Long id) {
-        List<TaskWebModel> taskWebModels = taskService.getAllByCategoryIdAndScheduled(id, false);
+        List<TaskWebModel> taskWebModels = taskService.getAllByCategory(id);
         return new ResponseEntity<List<TaskWebModel>>(taskWebModels, HttpStatus.OK);
     }
 
