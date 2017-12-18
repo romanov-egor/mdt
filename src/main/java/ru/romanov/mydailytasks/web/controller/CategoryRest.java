@@ -11,6 +11,9 @@ import ru.romanov.mydailytasks.web.model.TaskWebModel;
 import ru.romanov.mydailytasks.web.model.TasksByCategoryWebModel;
 import ru.romanov.mydailytasks.web.model.TasksByDateWebModel;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
@@ -92,5 +95,21 @@ public class CategoryRest {
             }
         }
         return new ResponseEntity<List<TasksByDateWebModel>>(tasksByDateWebModels, HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/getAllTasksByDate/{date}", method = RequestMethod.GET)
+    public ResponseEntity<List<TaskWebModel>> getAllTasksByDate(@PathVariable String date) {
+        List<TaskWebModel> taskWebModels = taskService.getAllByScheduled(true);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date requestDate = null;
+        try {
+            requestDate = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return new ResponseEntity<List<TaskWebModel>>(new ArrayList<TaskWebModel>(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        Date finalRequestDate = requestDate;
+        taskWebModels.removeIf(p -> !finalRequestDate.equals(p.getScheduleDate()));
+        return new ResponseEntity<List<TaskWebModel>>(taskWebModels, HttpStatus.OK);
     }
 }
