@@ -100,16 +100,11 @@ public class CategoryRest {
     @RequestMapping(path = "/getAllTasksByDate/{date}", method = RequestMethod.GET)
     public ResponseEntity<List<TaskWebModel>> getAllTasksByDate(@PathVariable String date) {
         List<TaskWebModel> taskWebModels = taskService.getAllByScheduled(true);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date requestDate = null;
-        try {
-            requestDate = dateFormat.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if (date != null) {
+            taskWebModels.removeIf(p -> !date.equals(p.getScheduleDate()));
+            return new ResponseEntity<List<TaskWebModel>>(taskWebModels, HttpStatus.OK);
+        } else {
             return new ResponseEntity<List<TaskWebModel>>(new ArrayList<TaskWebModel>(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        Date finalRequestDate = requestDate;
-        taskWebModels.removeIf(p -> !finalRequestDate.equals(p.getScheduleDate()));
-        return new ResponseEntity<List<TaskWebModel>>(taskWebModels, HttpStatus.OK);
     }
 }
