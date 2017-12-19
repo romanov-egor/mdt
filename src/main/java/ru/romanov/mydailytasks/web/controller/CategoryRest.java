@@ -123,7 +123,7 @@ public class CategoryRest {
                 Date taskScheduledDate = dateFormat.parse(taskWebModel.getScheduleDate());
                 cal.setTime(taskScheduledDate);
                 if (requestMonth == cal.get(Calendar.MONTH) && requestYear == cal.get(Calendar.YEAR)) {
-                    if (!result.contains(taskWebModel.getScheduleDate())) {
+                    if (!result.stream().filter(p -> p.getDate().equals(taskWebModel.getScheduleDate())).findAny().isPresent()) {
                         result.add(new DateWebModel(taskWebModel.getScheduleDate()));
                     }
                 }
