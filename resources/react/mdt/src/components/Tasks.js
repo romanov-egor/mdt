@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import strftime from 'strftime'
+import SweetAlert from 'sweetalert-react'
+
 import TasksController from '../controllers/TasksController'
 import '../style/tasks.css';
 
@@ -15,6 +18,27 @@ class Tasks extends Component {
       super();
       this._dargElement = false;
       this._timeout = false;
+      this.state = { 'buttons': [] }
+   }
+
+   /**
+    * Shedule task
+    * @return {[type]} [description]
+    */
+   scheduleTask (e) {
+      let calendarDate = this.props.stateStore.calendarReducer.calendarDate;
+
+      if (strftime('%Y-%m-%d', calendarDate) < strftime('%Y-%m-%d', new Date())) {
+         alert ('Нельзя мазафака');
+         return;
+      }
+
+      let taskId = +e.target.getAttribute('data-itemid');
+      let taskObj = this.taskFinder(taskId);
+      //let taskObj = JSON.parse(JSON.stringify(this.taskFinder(taskId)));
+      taskObj['scheduled'] = true;
+      taskObj['scheduleDate'] = strftime('%Y-%m-%d', calendarDate);
+      TasksController.editTask(taskObj);
    }
 
    /**
@@ -26,7 +50,7 @@ class Tasks extends Component {
       let taskId = +target.getAttribute('data-itemid');
       let taskObj = this.taskFinder(taskId);
       taskObj['done'] = !taskObj['done'];
-      TasksController.editTask(taskObj, this.props.type);
+      TasksController.editTask(taskObj);
    }
 
    /**
@@ -37,7 +61,7 @@ class Tasks extends Component {
       let result = window.confirm('Вы уверены');
       if (result) {
          let categoryId = e.target.getAttribute('data-itemid');
-         TasksController.deleteTask(categoryId, this.props.type);
+         TasksController.deleteTask(categoryId);
       }
    }
 
@@ -96,7 +120,6 @@ class Tasks extends Component {
    editTask (name) {
       if (name) {
          let taskId = +this.state.editTaskId;
-         //let taskObj = JSON.parse(JSON.stringify(this.taskFinder(taskId)));
          let taskObj = this.taskFinder(taskId);
          taskObj['text'] = name;
          TasksController.editTask(taskObj, this.props.type);
@@ -151,24 +174,6 @@ class Tasks extends Component {
       }
    }
 
-   startDrag (target) {
-      this._dargElement = true;
-      let oneTask = TasksController.findParentElemtByClassName(target, 'defaultBlock__one-item', 3);
-      oneTask.classList.add('drag-element');
-      this.props.addDragElement(oneTask);
-   }
-
-   /**
-    * Mouse up on task element
-    * @param  {Object} e
-    */
-   onMouseUp (e) {
-      if (this._timeout) {
-         clearTimeout(this._timeout);
-         this._timeout = null;
-      }
-   }
-
    /**
     * Format data from BL, make tasks view
     * @param  {Array} tasks
@@ -182,13 +187,11 @@ class Tasks extends Component {
          result.push(
             <div
             title={ item.text }
-            className="defaultBlock__one-item"
+            className={'defaultBlock__one-item ' + (item.scheduled ? 'scheduled' : '') }
             data-itemid={ item.id }
             onClick={ this.onTaskClick.bind(this, 'editTask') }
             onMouseEnter={ this.onTaskMouseOver.bind(this) }
             onMouseLeave={ this.onTaskMouseOver.bind(this) }
-            onMouseDown={ this.onMouseDown.bind(this) }
-            onMouseUp={ this.onMouseUp.bind(this) }
             key={ item.id }>
                <div className={'defaultBlock__one-item__title ' + cssClassDone} data-itemid={ item.id }>
                   { item.text }
@@ -197,6 +200,15 @@ class Tasks extends Component {
                   {
                      this.props.type === 'category' && this.state && this.state.buttons[item.id] &&
                      <div>
+                        {
+                           !item.scheduled &&
+                           <div
+                           className='schedule'
+                           data-itemid={ item.id }
+                           data-blocktype='btn'
+                           onClick={ this.scheduleTask.bind(this) }>
+                           </div>
+                        }
                         <div
                         className={ (item['done'] && 'not-done-item') || 'done-item' }
                         data-itemid={ item.id }
@@ -223,10 +235,6 @@ class Tasks extends Component {
       const calendarStore = this.props.stateStore.calendarReducer;
       const tasksStore = this.props.stateStore.taskReducer;
       const categoryReducer = this.props.stateStore.categoryReducer;
-
-      /*if (categoryReducer.categoryWasChoosen) {
-         this.props.loadTasksByCategory(+categoryReducer.choosenCategory);
-      }*/
 
       return (
          <div className="defaultBlock tasks">

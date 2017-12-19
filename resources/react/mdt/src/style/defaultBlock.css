@@ -16,13 +16,14 @@
    background-color: #EFEFEF;
 }
 .defaultBlock__one-item__title {
-   flex-basis: 82%;
+   flex-basis: 70%;
    height: 100%;
    display: flex;
    align-items: center;
+   overflow: hidden;
 }
 .defaultBlock__one-item__buttons {
-   flex-basis: 18%;
+   flex-basis: 30%;
 }
 .defaultBlock__one-item__buttons > div {
    display: flex;

@@ -6,3 +6,17 @@
    width: 25px;
    height: 25px;
 }
+.tasks .defaultBlock__one-item__buttons .schedule {
+   width: 24px;
+   height: 24px;
+}
+.tasks .defaultBlock__one-item__buttons .not-done-item {
+   width: 23px;
+   height: 23px;
+}
+.defaultBlock__one-item.scheduled .defaultBlock__one-item__title {
+   flex-basis: 82%;
+}
+.defaultBlock__one-item.scheduled .defaultBlock__one-item__buttons {
+   flex-basis: 18%;
+}

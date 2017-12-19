@@ -6,3 +6,9 @@
    width: 25px;
    height: 25px;
 }
+.categories .defaultBlock__one-item__title {
+   flex-basis: 82%;
+}
+.categories .defaultBlock__one-item__buttons {
+   flex-basis: 18%;
+}

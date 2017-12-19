@@ -41,7 +41,7 @@ class GeneralController {
       depth = depth || 0;
 
       const finder = function (target, cssClass) {
-         if (target.className !== cssClass && (cycleDepth < depth)) {
+         if (!!~target.className.indexOf(cssClass) && (cycleDepth < depth)) {
             finder(target.parentNode, cssClass);
             ++cycleDepth;
          } else {

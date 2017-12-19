@@ -11,6 +11,8 @@ class Calendar extends Component {
    onClickOnDay (e) {
       let date = new Date(this.state.currentDate.setDate(e.target.dataset.day));
       this.props.getTasksByDate(strftime('%Y-%m-%d', date));
+      this.setState({'currentDate': date});
+      this.props.setCalendarDateInStore(date);
    }
 
    /**
@@ -25,8 +27,8 @@ class Calendar extends Component {
       let endDate = lastMonthDate.getDate();
       let lastMonthDay = lastMonthDate.getDay();
       let date = new Date();
-      let dayDate = date.getDate();
       let currentMonth = calendarDate.getMonth() === date.getMonth();
+      let dayDate = new Date(this.state.currentDate).getDate();
       let result = [];
 
       /**
@@ -146,6 +148,10 @@ class Calendar extends Component {
    }
 
    render() {
+      const calendarState = this.props.stateStore.calendarReducer;
+      if (calendarState.loadCalendarTasks && this.state.currentDate) {
+         this.props.getTasksByDate(strftime('%Y-%m-%d', this.state.currentDate));
+      }
       return (
          <div className="defaultBlock calendar">
             <div className="defaultBlock__title">

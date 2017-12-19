@@ -15,14 +15,6 @@ class Tasks extends RequestController {
    }
 
    /**
-    * Tasks type
-    * @param {String} type - category or calendar
-    */
-   setTasksType (type) {
-      this._tasksType = type;
-   }
-
-   /**
     * Save drag elemnt in store
     * So that it can be taken in parent node
     * @param {Node} element
@@ -60,6 +52,9 @@ class Tasks extends RequestController {
       this.dispatch({
          type: 'HIDE_POPUP'
       });
+      this.dispatch({
+         type: 'LOAD_CALENDAR_TASKS'
+      });
    }
 
    /**
@@ -91,8 +86,7 @@ class Tasks extends RequestController {
     * Edit task name. Make a request and send data to callback
     * @param  {Object} taskId - updatedTask
     */
-   editTask (task, typeTasks) {
-      this._typeTasks = typeTasks;
+   editTask (task) {
       this.url('http://localhost:8080/mdt/task/update');
       this.resopnseType('POST');
 
@@ -114,14 +108,16 @@ class Tasks extends RequestController {
          type: 'TASK_CHANGED',
          payload: data
       });
+      this.dispatch({
+         type: 'LOAD_CALENDAR_TASKS'
+      });
    }
 
    /**
     * Delete task. Make a request and send data to callback
     * @param  {Int} taskId
     */
-   deleteTask (taskId, typeTasks) {
-      this._typeTasks = typeTasks;
+   deleteTask (taskId) {
       this.url('http://localhost:8080/mdt/task/delete');
       this.resopnseType('POST');
 
@@ -153,6 +149,9 @@ class Tasks extends RequestController {
       this.dispatch({
          type: 'TASK_CHANGED',
          payload: data
+      });
+      this.dispatch({
+         type: 'LOAD_CALENDAR_TASKS'
       });
    }
 
