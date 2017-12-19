@@ -18,6 +18,10 @@
    border: 2px solid #ef6767;
    border-radius: 4px;
 }
+.defaultBlock__item-day:nth-child(7n),
+.defaultBlock__item-day:nth-child(7n-1) {
+   color: red;
+}
 .defaultBlock__item-day.prevNextDays {
    color: #aaa;
 }

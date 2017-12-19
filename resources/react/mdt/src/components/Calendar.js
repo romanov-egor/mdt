@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
+import strftime from 'strftime'
 
 import CalendarController from '../controllers/CalendarController'
 import '../style/calendar.css'
@@ -8,7 +9,8 @@ import '../style/calendar.css'
 class Calendar extends Component {
 
    onClickOnDay (e) {
-      this.props.onChooseDay(e.target.dataset.day);
+      let date = new Date(this.state.currentDate.setDate(e.target.dataset.day));
+      this.props.getTasksByDate(strftime('%Y-%m-%d', date));
    }
 
    /**
@@ -26,7 +28,6 @@ class Calendar extends Component {
       let dayDate = date.getDate();
       let currentMonth = calendarDate.getMonth() === date.getMonth();
       let result = [];
-      let dayWithTasks;
 
       /**
        * Add days previous months
@@ -76,20 +77,7 @@ class Calendar extends Component {
          return nextResult;
       }
 
-      /**
-       * Check temporary date while calendar rendering
-       * @param  {DATETIME} tempDate
-       * @return {String} css class if we have tasks
-       */
-      const checkTempDate = function (tempDate) {
-         /*if () {
-
-         }
-         return ;*/
-      }
-
       while (startDate <= endDate) {
-         dayWithTasks = checkTempDate(new Date(calendarDate.getFullYear(), calendarDate.getMonth(), calendarDate.getDate()));
          if (startDate === 1 && startDay !== 1) {
             addPrevDays().forEach((item, key)=> {
                result.push(item);
@@ -120,8 +108,9 @@ class Calendar extends Component {
     * get tasks by this date
     */
    componentWillMount () {
-      this.changeCalendarDate(new Date());
-      this.props.getTasksByDate(new Date());
+      let date = new Date();
+      this.changeCalendarDate(date);
+      this.props.getTasksByDate(strftime('%Y-%m-%d', date));
    }
 
    /**
