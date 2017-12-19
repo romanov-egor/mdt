@@ -21,6 +21,9 @@ public class Task {
     private boolean done = false;
 
     @Column
+    private int workflowActionType;
+
+    @Column
     private boolean scheduled = false;
 
     @Column
@@ -55,6 +58,14 @@ public class Task {
     }
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public int getWorkflowActionType() {
+        return workflowActionType;
+    }
+
+    public void setWorkflowActionType(int workflowActionType) {
+        this.workflowActionType = workflowActionType;
     }
 
     public boolean isScheduled() {

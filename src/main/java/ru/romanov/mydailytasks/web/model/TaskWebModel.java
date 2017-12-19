@@ -12,6 +12,8 @@ public class TaskWebModel {
 
     private boolean done;
 
+    private String workflowActionType;
+
     private boolean scheduled;
 
     private String scheduleDate;
@@ -49,6 +51,14 @@ public class TaskWebModel {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public String getWorkflowActionType() {
+        return workflowActionType;
+    }
+
+    public void setWorkflowActionType(String workflowActionType) {
+        this.workflowActionType = workflowActionType;
     }
 
     public boolean isScheduled() {

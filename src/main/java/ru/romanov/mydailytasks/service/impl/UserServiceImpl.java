@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.romanov.mydailytasks.persistence.entity.User;
 import ru.romanov.mydailytasks.persistence.repository.UserRepository;
 import ru.romanov.mydailytasks.service.UserService;
+import ru.romanov.mydailytasks.web.model.UserWebModel;
+import ru.romanov.mydailytasks.web.util.Converter;
 
 @Component("userService")
 @Transactional
@@ -14,7 +16,15 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserRepository userRepository;
 
-	public User getUser(Long userId) {
-		return userRepository.getOne(userId);
+	public UserWebModel getUser(Long userId) {
+		return Converter.toWebModel(userRepository.getOne(userId));
+	}
+
+	@Override
+	public UserWebModel create(UserWebModel userWebModel) {
+		User user = new User();
+		user.setLogin(userWebModel.getLogin());
+		user.setPassword(userWebModel.getPassword());
+		return Converter.toWebModel(user);
 	}
 }

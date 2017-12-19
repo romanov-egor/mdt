@@ -15,12 +15,10 @@ public class User {
     private Long userId;
 	
 	@Column
-    private String firstName;
+    private String login;
     
 	@Column
-    private String lastName;
-
-    protected User() {}
+    private String password;
 
 	public Long getId() {
 		return userId;
@@ -28,25 +26,25 @@ public class User {
 
 	public void setId(Long userId) { this.userId = userId; }
 	
-	public String getFirstName() {
-		return firstName;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return this.userId + " " + this.firstName + " " + this.lastName;
+		return this.userId + " " + this.login + " " + this.password;
 	}
     
 }

@@ -3,6 +3,7 @@ package ru.romanov.mydailytasks.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import ru.romanov.mydailytasks.constants.WorkflowActionType;
 import ru.romanov.mydailytasks.persistence.entity.Task;
 import ru.romanov.mydailytasks.persistence.repository.TaskRepository;
 import ru.romanov.mydailytasks.service.TaskService;
@@ -29,6 +30,7 @@ public class TaskServiceImpl implements TaskService {
         task.setText(taskWebModel.getText());
         task.setCategoryId(taskWebModel.getCategoryId());
         task.setDone(taskWebModel.isDone());
+        task.setWorkflowActionType(WorkflowActionType.getIdByName(taskWebModel.getWorkflowActionType()));
         task.setScheduled(taskWebModel.isScheduled());
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         task.setScheduleDate(dateFormat.parse(taskWebModel.getScheduleDate()));
@@ -45,6 +47,7 @@ public class TaskServiceImpl implements TaskService {
         task.setText(taskWebModel.getText());
         task.setCategoryId(taskWebModel.getCategoryId());
         task.setDone(taskWebModel.isDone());
+        task.setWorkflowActionType(WorkflowActionType.getIdByName(taskWebModel.getWorkflowActionType()));
         task.setScheduled(taskWebModel.isScheduled());
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         task.setScheduleDate(dateFormat.parse(taskWebModel.getScheduleDate()));

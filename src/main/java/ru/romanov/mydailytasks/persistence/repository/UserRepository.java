@@ -7,5 +7,6 @@ import ru.romanov.mydailytasks.persistence.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	
+
+    User findByLogin(String login);
 }
