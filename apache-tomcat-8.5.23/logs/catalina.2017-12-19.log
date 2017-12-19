@@ -1,0 +1,123 @@
+19-Dec-2017 00:32:04.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.23
+19-Dec-2017 00:32:04.167 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 28 2017 10:30:11 UTC
+19-Dec-2017 00:32:04.167 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.23.0
+19-Dec-2017 00:32:04.167 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+19-Dec-2017 00:32:04.168 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+19-Dec-2017 00:32:04.168 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+19-Dec-2017 00:32:04.168 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+19-Dec-2017 00:32:04.168 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_101-b13
+19-Dec-2017 00:32:04.169 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+19-Dec-2017 00:32:04.169 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+19-Dec-2017 00:32:04.169 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+19-Dec-2017 00:32:04.170 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\conf\logging.properties
+19-Dec-2017 00:32:04.171 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+19-Dec-2017 00:32:04.172 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+19-Dec-2017 00:32:04.173 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+19-Dec-2017 00:32:04.174 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+19-Dec-2017 00:32:04.174 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+19-Dec-2017 00:32:04.176 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\temp
+19-Dec-2017 00:32:04.178 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Romansky\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\Plantronics\Spokes3G\;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;D:\Soft\apache-maven-3.5.2\bin;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\Romansky\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Romansky\AppData\Local\Programs\Python\Python36\;C:\Program Files (x86)\Nmap;C:\Users\Romansky\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\Romansky\AppData\Local\Microsoft\WindowsApps;;.]
+19-Dec-2017 00:32:05.378 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+19-Dec-2017 00:32:06.205 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+19-Dec-2017 00:32:06.338 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+19-Dec-2017 00:32:06.343 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+19-Dec-2017 00:32:06.347 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 5249 ms
+19-Dec-2017 00:32:06.603 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+19-Dec-2017 00:32:06.604 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.23
+19-Dec-2017 00:32:06.738 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+19-Dec-2017 00:32:15.374 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+19-Dec-2017 00:32:20.651 INFO [localhost-startStop-1] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+19-Dec-2017 00:32:21.130 INFO [localhost-startStop-1] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+19-Dec-2017 00:32:21.134 INFO [localhost-startStop-1] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+19-Dec-2017 00:32:21.468 INFO [localhost-startStop-1] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+19-Dec-2017 00:32:23.444 INFO [localhost-startStop-1] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+19-Dec-2017 00:32:31.392 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [24,654] ms
+19-Dec-2017 00:32:31.415 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs]
+19-Dec-2017 00:32:31.521 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs] has finished in [106] ms
+19-Dec-2017 00:32:31.522 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples]
+19-Dec-2017 00:32:32.680 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples] has finished in [1,159] ms
+19-Dec-2017 00:32:32.682 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager]
+19-Dec-2017 00:32:32.847 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager] has finished in [165] ms
+19-Dec-2017 00:32:32.848 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager]
+19-Dec-2017 00:32:32.926 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager] has finished in [78] ms
+19-Dec-2017 00:32:32.945 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT]
+19-Dec-2017 00:32:33.001 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT] has finished in [56] ms
+19-Dec-2017 00:32:33.012 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+19-Dec-2017 00:32:33.048 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+19-Dec-2017 00:32:33.059 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 26711 ms
+19-Dec-2017 00:54:58.212 INFO [http-nio-8080-exec-5] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService HHH000397: Using ASTQueryTranslatorFactory
+19-Dec-2017 01:26:36.306 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mdt]
+19-Dec-2017 01:26:36.370 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [mdt] registered the JDBC driver [org.h2.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+19-Dec-2017 01:26:36.609 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+19-Dec-2017 01:26:46.746 INFO [localhost-startStop-2] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+19-Dec-2017 01:26:47.258 INFO [localhost-startStop-2] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+19-Dec-2017 01:26:47.262 INFO [localhost-startStop-2] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+19-Dec-2017 01:26:47.556 INFO [localhost-startStop-2] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+19-Dec-2017 01:26:49.563 INFO [localhost-startStop-2] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+19-Dec-2017 01:26:59.064 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [22,451] ms
+19-Dec-2017 01:28:15.811 INFO [http-nio-8080-exec-9] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService HHH000397: Using ASTQueryTranslatorFactory
+19-Dec-2017 01:45:40.132 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mdt]
+19-Dec-2017 01:45:40.160 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [mdt] registered the JDBC driver [org.h2.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+19-Dec-2017 01:45:40.263 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+19-Dec-2017 01:45:49.066 INFO [localhost-startStop-3] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+19-Dec-2017 01:45:49.847 INFO [localhost-startStop-3] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+19-Dec-2017 01:45:49.850 INFO [localhost-startStop-3] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+19-Dec-2017 01:45:50.138 INFO [localhost-startStop-3] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+19-Dec-2017 01:45:51.844 INFO [localhost-startStop-3] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+19-Dec-2017 01:46:03.456 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [23,192] ms
+19-Dec-2017 01:46:17.281 INFO [http-nio-8080-exec-18] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService HHH000397: Using ASTQueryTranslatorFactory
+19-Dec-2017 23:59:16.194 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.23
+19-Dec-2017 23:59:16.196 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 28 2017 10:30:11 UTC
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.23.0
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_101-b13
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+19-Dec-2017 23:59:16.197 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+19-Dec-2017 23:59:16.198 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\conf\logging.properties
+19-Dec-2017 23:59:16.198 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+19-Dec-2017 23:59:16.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+19-Dec-2017 23:59:16.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+19-Dec-2017 23:59:16.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+19-Dec-2017 23:59:16.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+19-Dec-2017 23:59:16.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\temp
+19-Dec-2017 23:59:16.201 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Romansky\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\Plantronics\Spokes3G\;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;D:\Soft\apache-maven-3.5.2\bin;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\Romansky\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Romansky\AppData\Local\Programs\Python\Python36\;C:\Program Files (x86)\Nmap;C:\Users\Romansky\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\Romansky\AppData\Local\Microsoft\WindowsApps;;.]
+19-Dec-2017 23:59:16.335 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+19-Dec-2017 23:59:16.493 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+19-Dec-2017 23:59:16.496 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+19-Dec-2017 23:59:16.498 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+19-Dec-2017 23:59:16.499 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 666 ms
+19-Dec-2017 23:59:16.521 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+19-Dec-2017 23:59:16.522 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.23
+19-Dec-2017 23:59:16.594 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+19-Dec-2017 23:59:22.041 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+19-Dec-2017 23:59:24.088 INFO [localhost-startStop-1] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+19-Dec-2017 23:59:24.353 INFO [localhost-startStop-1] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+19-Dec-2017 23:59:24.357 INFO [localhost-startStop-1] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+19-Dec-2017 23:59:24.630 INFO [localhost-startStop-1] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+19-Dec-2017 23:59:25.944 INFO [localhost-startStop-1] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+19-Dec-2017 23:59:29.439 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [12,845] ms
+19-Dec-2017 23:59:29.440 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs]
+19-Dec-2017 23:59:29.463 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs] has finished in [23] ms
+19-Dec-2017 23:59:29.465 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples]
+19-Dec-2017 23:59:29.983 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples] has finished in [517] ms
+19-Dec-2017 23:59:29.983 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager]
+19-Dec-2017 23:59:30.033 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager] has finished in [50] ms
+19-Dec-2017 23:59:30.034 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager]
+19-Dec-2017 23:59:30.070 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager] has finished in [35] ms
+19-Dec-2017 23:59:30.070 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT]
+19-Dec-2017 23:59:30.102 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT] has finished in [32] ms
+19-Dec-2017 23:59:30.110 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+19-Dec-2017 23:59:30.130 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+19-Dec-2017 23:59:30.133 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 13634 ms

@@ -9,8 +9,35 @@ class CalendarController extends RequestController {
 
       this.dispatcherObj = {
          getTasksByDate: this.getTasksByDate.bind(this),
-         setCalendarDateInStore: this.saveCalendarDateInStore.bind(this)
+         setCalendarDateInStore: this.saveCalendarDateInStore.bind(this),
+         getDatesWithTasksByMonth: this.getDatesWithTasksByMonth.bind(this)
       }
+   }
+
+   /**
+    * Look to method name...
+    * @return {}
+    */
+   getDatesWithTasksByMonth (date) {
+      this.url('localhost:8080/mdt/category/getAllScheduledDatesByMonth/' + date);
+      this.resopnseType('GET');
+
+      this.makeRequest(date).then(
+         result=>this.saveDatesWithTasks(result),
+         error => console.log (error)
+      );
+   }
+
+   /**
+    * Send dispatch
+    * @param  {Array} result - dates
+    * @param  {String} date - month date
+    */
+   saveDatesWithTasks (result) {
+      this.dispatch({
+         type: 'ON_LOAD_CALENDAR_DAYS_WITH_TASKS',
+         payload: result
+      });
    }
 
    /**
@@ -28,7 +55,6 @@ class CalendarController extends RequestController {
     * @param  {DateTime} date
     */
    getTasksByDate (date) {
-      // here now we get all task with shedule, but this is wrong
       this.url('http://localhost:8080/mdt/category/getAllTasksByDate/' + date);
       this.resopnseType('GET');
 

@@ -35,9 +35,18 @@ class Tasks extends Component {
 
       let taskId = +e.target.getAttribute('data-itemid');
       let taskObj = this.taskFinder(taskId);
-      //let taskObj = JSON.parse(JSON.stringify(this.taskFinder(taskId)));
       taskObj['scheduled'] = true;
       taskObj['scheduleDate'] = strftime('%Y-%m-%d', calendarDate);
+      TasksController.editTask(taskObj);
+   }
+
+   /**
+    * Make task not schedule
+    */
+   notScheduleTask (e) {
+      let taskId = +e.target.getAttribute('data-itemid');
+      let taskObj = this.taskFinder(taskId);
+      taskObj['scheduled'] = false;
       TasksController.editTask(taskObj);
    }
 
@@ -193,7 +202,7 @@ class Tasks extends Component {
             onMouseEnter={ this.onTaskMouseOver.bind(this) }
             onMouseLeave={ this.onTaskMouseOver.bind(this) }
             key={ item.id }>
-               <div className={'defaultBlock__one-item__title ' + cssClassDone} data-itemid={ item.id }>
+               <div className={ 'defaultBlock__one-item__title ' + cssClassDone} data-itemid={ item.id }>
                   { item.text }
                </div>
                <div className="defaultBlock__one-item__buttons">
@@ -223,6 +232,17 @@ class Tasks extends Component {
                         </div>
                      </div>
                   }
+                  {
+                     this.props.type === 'calendar' && this.state && this.state.buttons[item.id] &&
+                     <div>
+                        <div
+                        className='not-done-item'
+                        data-itemid={ item.id }
+                        data-blocktype='btn'
+                        onClick={ this.notScheduleTask.bind(this) }>
+                        </div>
+                     </div>
+                  }
                </div>
             </div>
          );
@@ -237,7 +257,7 @@ class Tasks extends Component {
       const categoryReducer = this.props.stateStore.categoryReducer;
 
       return (
-         <div className="defaultBlock tasks">
+         <div className={ 'defaultBlock tasks ' + this.props.type }>
             <div className="defaultBlock__title">
                <div className="defaultBlock__text">
                   { this.props.type === 'category' && 'Задачи' }

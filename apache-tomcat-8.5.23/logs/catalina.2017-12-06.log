@@ -1,0 +1,307 @@
+06-Dec-2017 00:13:48.667 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.23
+06-Dec-2017 00:13:48.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 28 2017 10:30:11 UTC
+06-Dec-2017 00:13:48.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.23.0
+06-Dec-2017 00:13:48.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+06-Dec-2017 00:13:48.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+06-Dec-2017 00:13:48.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+06-Dec-2017 00:13:48.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+06-Dec-2017 00:13:48.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_101-b13
+06-Dec-2017 00:13:48.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+06-Dec-2017 00:13:48.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 00:13:48.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 00:13:48.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\conf\logging.properties
+06-Dec-2017 00:13:48.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+06-Dec-2017 00:13:48.741 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+06-Dec-2017 00:13:48.743 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+06-Dec-2017 00:13:48.745 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 00:13:48.747 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 00:13:48.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\temp
+06-Dec-2017 00:13:48.754 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Python27\;C:\Python27\Scripts;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\Plantronics\Spokes3G\;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;D:\Soft\apache-maven-3.5.2\bin;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files (x86)\Nmap;C:\Users\Romansky\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_101\bin;.]
+06-Dec-2017 00:13:49.724 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+06-Dec-2017 00:13:50.365 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+06-Dec-2017 00:13:50.388 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+06-Dec-2017 00:13:50.394 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+06-Dec-2017 00:13:50.395 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 3276 ms
+06-Dec-2017 00:13:50.522 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+06-Dec-2017 00:13:50.522 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.23
+06-Dec-2017 00:13:50.577 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+06-Dec-2017 00:13:55.242 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+06-Dec-2017 00:13:57.578 INFO [localhost-startStop-1] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+06-Dec-2017 00:13:57.784 INFO [localhost-startStop-1] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+06-Dec-2017 00:13:57.789 INFO [localhost-startStop-1] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+06-Dec-2017 00:13:57.935 INFO [localhost-startStop-1] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+06-Dec-2017 00:13:59.279 INFO [localhost-startStop-1] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+06-Dec-2017 00:14:02.235 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [11,657] ms
+06-Dec-2017 00:14:02.237 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs]
+06-Dec-2017 00:14:02.281 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs] has finished in [44] ms
+06-Dec-2017 00:14:02.282 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples]
+06-Dec-2017 00:14:02.815 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples] has finished in [533] ms
+06-Dec-2017 00:14:02.815 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager]
+06-Dec-2017 00:14:02.864 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager] has finished in [49] ms
+06-Dec-2017 00:14:02.865 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager]
+06-Dec-2017 00:14:02.890 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager] has finished in [25] ms
+06-Dec-2017 00:14:02.890 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT]
+06-Dec-2017 00:14:02.918 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT] has finished in [28] ms
+06-Dec-2017 00:14:02.945 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+06-Dec-2017 00:14:02.958 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+06-Dec-2017 00:14:02.963 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 12566 ms
+06-Dec-2017 00:30:36.726 INFO [http-nio-8080-exec-1] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService HHH000397: Using ASTQueryTranslatorFactory
+06-Dec-2017 12:49:26.082 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact [localhost:[8005]]. Tomcat may not be running.
+06-Dec-2017 12:50:01.565 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.23
+06-Dec-2017 12:50:01.567 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 28 2017 10:30:11 UTC
+06-Dec-2017 12:50:01.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.23.0
+06-Dec-2017 12:50:01.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+06-Dec-2017 12:50:01.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+06-Dec-2017 12:50:01.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+06-Dec-2017 12:50:01.568 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+06-Dec-2017 12:50:01.569 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_101-b13
+06-Dec-2017 12:50:01.569 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+06-Dec-2017 12:50:01.569 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 12:50:01.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 12:50:01.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\conf\logging.properties
+06-Dec-2017 12:50:01.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+06-Dec-2017 12:50:01.571 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+06-Dec-2017 12:50:01.571 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+06-Dec-2017 12:50:01.572 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 12:50:01.572 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 12:50:01.573 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\temp
+06-Dec-2017 12:50:01.573 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Python27\;C:\Python27\Scripts;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\Plantronics\Spokes3G\;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;D:\Soft\apache-maven-3.5.2\bin;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files (x86)\Nmap;C:\Users\Romansky\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_101\bin;.]
+06-Dec-2017 12:50:02.318 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+06-Dec-2017 12:50:03.048 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+06-Dec-2017 12:50:03.052 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+06-Dec-2017 12:50:03.056 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+06-Dec-2017 12:50:03.057 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2461 ms
+06-Dec-2017 12:50:03.167 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+06-Dec-2017 12:50:03.169 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.23
+06-Dec-2017 12:50:03.256 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+06-Dec-2017 12:50:08.212 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+06-Dec-2017 12:50:11.226 INFO [localhost-startStop-1] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+06-Dec-2017 12:50:11.536 INFO [localhost-startStop-1] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+06-Dec-2017 12:50:11.540 INFO [localhost-startStop-1] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+06-Dec-2017 12:50:11.857 INFO [localhost-startStop-1] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+06-Dec-2017 12:50:12.903 INFO [localhost-startStop-1] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+06-Dec-2017 12:50:16.502 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [13,245] ms
+06-Dec-2017 12:50:16.503 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs]
+06-Dec-2017 12:50:16.558 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs] has finished in [55] ms
+06-Dec-2017 12:50:16.560 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples]
+06-Dec-2017 12:50:17.047 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples] has finished in [487] ms
+06-Dec-2017 12:50:17.048 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager]
+06-Dec-2017 12:50:17.086 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager] has finished in [38] ms
+06-Dec-2017 12:50:17.087 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager]
+06-Dec-2017 12:50:17.115 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager] has finished in [28] ms
+06-Dec-2017 12:50:17.117 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT]
+06-Dec-2017 12:50:17.152 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT] has finished in [35] ms
+06-Dec-2017 12:50:17.156 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+06-Dec-2017 12:50:17.171 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+06-Dec-2017 12:50:17.175 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 14118 ms
+06-Dec-2017 12:50:17.504 INFO [http-nio-8080-exec-2] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService HHH000397: Using ASTQueryTranslatorFactory
+06-Dec-2017 17:05:57.443 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mdt]
+06-Dec-2017 17:05:57.473 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [mdt] registered the JDBC driver [org.h2.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+06-Dec-2017 17:05:57.626 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+06-Dec-2017 17:06:00.308 INFO [localhost-startStop-2] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+06-Dec-2017 17:06:00.466 INFO [localhost-startStop-2] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+06-Dec-2017 17:06:00.470 INFO [localhost-startStop-2] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+06-Dec-2017 17:06:00.568 INFO [localhost-startStop-2] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+06-Dec-2017 17:06:01.065 INFO [localhost-startStop-2] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+06-Dec-2017 17:06:01.734 WARN [localhost-startStop-2] org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl.handleException GenerationTarget encountered exception accepting command : Error executing DDL via JDBC Statement
+ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:525)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:546)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:293)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:75)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:203)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:110)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:452)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:889)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:682)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:553)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:494)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:171)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1183)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1099)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:989)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4931)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5241)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:752)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:728)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:734)
+	at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:988)
+	at org.apache.catalina.startup.HostConfig$DeployWar.run(HostConfig.java:1860)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "ALTER TABLE MDT-[*]DATABASE.PUBLIC.TASK ADD COLUMN SCHEDULEDATE TIMESTAMP "; ожидалось "., ADD, SET, RENAME, DROP, CHANGE, MODIFY, ALTER"
+Syntax error in SQL statement "ALTER TABLE MDT-[*]DATABASE.PUBLIC.TASK ADD COLUMN SCHEDULEDATE TIMESTAMP "; expected "., ADD, SET, RENAME, DROP, CHANGE, MODIFY, ALTER"; SQL statement:
+alter table MDT-DATABASE.PUBLIC.TASK add column scheduleDate timestamp [42001-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:205)
+	at org.h2.command.Parser.getSyntaxError(Parser.java:541)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5838)
+	at org.h2.command.Parser.parseAlter(Parser.java:5007)
+	at org.h2.command.Parser.parsePrepared(Parser.java:348)
+	at org.h2.command.Parser.parse(Parser.java:321)
+	at org.h2.command.Parser.parse(Parser.java:297)
+	at org.h2.command.Parser.prepareCommand(Parser.java:258)
+	at org.h2.engine.Session.prepareLocal(Session.java:578)
+	at org.h2.engine.Session.prepareCommand(Session.java:519)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:176)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:164)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 49 more
+
+06-Dec-2017 17:06:01.757 WARN [localhost-startStop-2] org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl.handleException GenerationTarget encountered exception accepting command : Error executing DDL via JDBC Statement
+ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:525)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:546)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:293)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:75)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:203)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:110)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:452)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:889)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:353)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:370)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:668)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:682)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:553)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:494)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:171)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1183)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1099)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:989)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4931)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5241)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:752)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:728)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:734)
+	at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:988)
+	at org.apache.catalina.startup.HostConfig$DeployWar.run(HostConfig.java:1860)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "ALTER TABLE MDT-[*]DATABASE.PUBLIC.TASK ADD COLUMN SCHEDULED BOOLEAN "; ожидалось "., ADD, SET, RENAME, DROP, CHANGE, MODIFY, ALTER"
+Syntax error in SQL statement "ALTER TABLE MDT-[*]DATABASE.PUBLIC.TASK ADD COLUMN SCHEDULED BOOLEAN "; expected "., ADD, SET, RENAME, DROP, CHANGE, MODIFY, ALTER"; SQL statement:
+alter table MDT-DATABASE.PUBLIC.TASK add column scheduled boolean [42001-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:205)
+	at org.h2.command.Parser.getSyntaxError(Parser.java:541)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5838)
+	at org.h2.command.Parser.parseAlter(Parser.java:5007)
+	at org.h2.command.Parser.parsePrepared(Parser.java:348)
+	at org.h2.command.Parser.parse(Parser.java:321)
+	at org.h2.command.Parser.parse(Parser.java:297)
+	at org.h2.command.Parser.prepareCommand(Parser.java:258)
+	at org.h2.engine.Session.prepareLocal(Session.java:578)
+	at org.h2.engine.Session.prepareCommand(Session.java:519)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:176)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:164)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 49 more
+
+06-Dec-2017 17:06:03.260 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [5,634] ms
+06-Dec-2017 17:06:47.368 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact [localhost:[8005]]. Tomcat may not be running.
+06-Dec-2017 17:07:20.938 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.23
+06-Dec-2017 17:07:20.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 28 2017 10:30:11 UTC
+06-Dec-2017 17:07:20.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.23.0
+06-Dec-2017 17:07:20.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+06-Dec-2017 17:07:20.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+06-Dec-2017 17:07:20.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+06-Dec-2017 17:07:20.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+06-Dec-2017 17:07:20.941 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_101-b13
+06-Dec-2017 17:07:20.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+06-Dec-2017 17:07:20.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 17:07:20.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 17:07:20.942 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\conf\logging.properties
+06-Dec-2017 17:07:20.943 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+06-Dec-2017 17:07:20.943 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+06-Dec-2017 17:07:20.944 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+06-Dec-2017 17:07:20.944 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 17:07:20.945 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23
+06-Dec-2017 17:07:20.945 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\temp
+06-Dec-2017 17:07:20.946 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Python27\;C:\Python27\Scripts;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\Plantronics\Spokes3G\;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;D:\Soft\apache-maven-3.5.2\bin;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files (x86)\Nmap;C:\Users\Romansky\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_101\bin;.]
+06-Dec-2017 17:07:21.423 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+06-Dec-2017 17:07:21.823 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+06-Dec-2017 17:07:21.826 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+06-Dec-2017 17:07:21.828 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+06-Dec-2017 17:07:21.828 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1388 ms
+06-Dec-2017 17:07:21.905 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+06-Dec-2017 17:07:21.906 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.23
+06-Dec-2017 17:07:21.947 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+06-Dec-2017 17:07:23.899 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+06-Dec-2017 17:07:25.380 INFO [localhost-startStop-1] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+06-Dec-2017 17:07:25.565 INFO [localhost-startStop-1] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+06-Dec-2017 17:07:25.570 INFO [localhost-startStop-1] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+06-Dec-2017 17:07:25.709 INFO [localhost-startStop-1] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+06-Dec-2017 17:07:26.394 INFO [localhost-startStop-1] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+06-Dec-2017 17:07:29.060 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [7,113] ms
+06-Dec-2017 17:07:29.063 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs]
+06-Dec-2017 17:07:29.120 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\docs] has finished in [57] ms
+06-Dec-2017 17:07:29.121 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples]
+06-Dec-2017 17:07:29.554 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\examples] has finished in [433] ms
+06-Dec-2017 17:07:29.555 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager]
+06-Dec-2017 17:07:29.594 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\host-manager] has finished in [39] ms
+06-Dec-2017 17:07:29.595 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager]
+06-Dec-2017 17:07:29.621 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\manager] has finished in [26] ms
+06-Dec-2017 17:07:29.621 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT]
+06-Dec-2017 17:07:29.649 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\ROOT] has finished in [27] ms
+06-Dec-2017 17:07:29.654 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+06-Dec-2017 17:07:29.667 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+06-Dec-2017 17:07:29.672 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 7843 ms
+06-Dec-2017 17:11:52.734 INFO [http-nio-8080-exec-1] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService HHH000397: Using ASTQueryTranslatorFactory

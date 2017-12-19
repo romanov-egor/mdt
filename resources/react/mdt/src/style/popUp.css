@@ -12,7 +12,6 @@
    opacity: 0.5;
    z-index: 10;
 }
-
 .pop-up {
    z-index: 100;
    position: relative;
@@ -21,20 +20,17 @@
    padding: 10px;
    background-color: white;
 }
-
 .pop-up .title {
    width: 100%;
    text-align: center;
    font-size: 23px;
 }
-
 .pop-up .changedText {
    text-align: center;
    width: 100%;
    margin-top: 20px;
    padding-bottom: 10px;
 }
-
 .pop-up .changedText input {
    width: 90%;
    height: 100%;
@@ -42,7 +38,6 @@
    margin: 0 auto;
    font-size: 18px;
 }
-
 .save-btn {
    text-align: center;
    width: 120px;
@@ -62,4 +57,36 @@
    color: black;
    background: none;
    box-shadow: 0 -3px #efefef inset;
+}
+.taskActionSelect {
+   width: 100%;
+   height: 100px;
+   margin-top: 18px;
+}
+.taskActionSelect__description {
+   font-size: 19px;
+   text-align: center;
+}
+.taskActionSelect__select {
+   width: 100%;
+   height: 50px;
+   text-align: center;
+}
+.taskActionSelect__select select {
+   width: 90%;
+   margin-top: 10px;
+   height: 40px;
+   font-size: 14px;
+   font-family: Helvetica;
+   color: #333;
+   outline: none;
+   outline-offset: 0;
+   cursor: pointer;
+}
+.taskActionSelect__select select:active {
+   outline: none;
+   outline-offset: 0;
+}
+.taskActionSelect__select select > option:hover {
+   cursor: pointer;
 }

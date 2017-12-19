@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { connect } from 'react-redux';
-
+import { connect } from 'react-redux'
 import PopUpController from '../controllers/PopUpController'
 
 import '../style/popUp.css'
@@ -60,6 +59,30 @@ class PopUp extends Component {
       return result;
    }
 
+   getAdditionalBlock () {
+      let store = this.props.stateStore.popUpReducer;
+      let result = [];
+
+      if (store.popUpType === 'editTask' || store.popUpType === 'addTask') {
+         result.push(
+            <div key="taskActionSelect" className="taskActionSelect">
+               <div className="taskActionSelect__description">
+                  Действие, <br /> если задача не была выполнена в срок
+               </div>
+               <div className="taskActionSelect__select">
+                  <select>
+                     <option value="Перенести задачу на следующий день" >Перенести задачу на следующий день</option>
+                     <option value="Удалить задачу">Удалить задачу</option>
+                     <option value="Убрать задачу из плана, но не удалять">Убрать задачу из плана, но не удалять</option>
+                  </select>
+               </div>
+            </div>
+         );
+      }
+
+      return result;
+   }
+
    onChageValue (e) {
       this.setState({
          inputValue: e.target.value
@@ -87,6 +110,7 @@ class PopUp extends Component {
                   <div className="changedText">
                      { this.getBody() }
                   </div>
+                  { this.getAdditionalBlock() }
                   <div className="save-btn" onClick={ this.onSave.bind(this) }>
                      Сохранить
                   </div>
