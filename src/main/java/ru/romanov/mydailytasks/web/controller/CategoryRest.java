@@ -6,14 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.romanov.mydailytasks.service.CategoryService;
 import ru.romanov.mydailytasks.service.TaskService;
-import ru.romanov.mydailytasks.web.model.CategoryWebModel;
-import ru.romanov.mydailytasks.web.model.TaskWebModel;
-import ru.romanov.mydailytasks.web.model.TasksByCategoryWebModel;
-import ru.romanov.mydailytasks.web.model.TasksByDateWebModel;
+import ru.romanov.mydailytasks.web.model.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 @RestController
@@ -106,5 +104,34 @@ public class CategoryRest {
         } else {
             return new ResponseEntity<List<TaskWebModel>>(new ArrayList<TaskWebModel>(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @RequestMapping(path = "/getAllScheduledDatesByMonth/{firstDateOfMonth}", method = RequestMethod.GET)
+    public ResponseEntity<List<DateWebModel>> getAllScheduledDatesByMonth(@PathVariable String firstDateOfMonth) {
+        List<TaskWebModel> taskWebModels = taskService.getAllByScheduled(true);
+        taskWebModels.removeIf(p -> p.getScheduleDate() == null);
+        List<DateWebModel> result = new ArrayList<DateWebModel>();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateFromRequest = null;
+        try {
+            dateFromRequest = dateFormat.parse(firstDateOfMonth);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(dateFromRequest);
+            int requestMonth = cal.get(Calendar.MONTH);
+            int requestYear = cal.get(Calendar.YEAR);
+            for (TaskWebModel taskWebModel : taskWebModels) {
+                Date taskScheduledDate = dateFormat.parse(taskWebModel.getScheduleDate());
+                cal.setTime(taskScheduledDate);
+                if (requestMonth == cal.get(Calendar.MONTH) && requestYear == cal.get(Calendar.YEAR)) {
+                    if (!result.stream().filter(p -> p.getDate().equals(taskWebModel.getScheduleDate())).findAny().isPresent()) {
+                        result.add(new DateWebModel(taskWebModel.getScheduleDate()));
+                    }
+                }
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return new ResponseEntity<List<DateWebModel>>(new ArrayList<DateWebModel>(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<List<DateWebModel>>(result, HttpStatus.OK);
     }
 }
