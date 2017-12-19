@@ -26,7 +26,7 @@ class Tasks extends Component {
       let taskId = +target.getAttribute('data-itemid');
       let taskObj = this.taskFinder(taskId);
       taskObj['done'] = !taskObj['done'];
-      TasksController.editTask(taskObj);
+      TasksController.editTask(taskObj, this.props.type);
    }
 
    /**
@@ -37,7 +37,7 @@ class Tasks extends Component {
       let result = window.confirm('Вы уверены');
       if (result) {
          let categoryId = e.target.getAttribute('data-itemid');
-         TasksController.deleteTask(categoryId);
+         TasksController.deleteTask(categoryId, this.props.type);
       }
    }
 
@@ -73,7 +73,12 @@ class Tasks extends Component {
     * @return {Object} - task object
     */
    taskFinder (taskId) {
-      const tasks = this.props.stateStore.taskReducer.categoryTasks;
+      let tasks;
+      if (this.props.type === 'category') {
+         tasks = this.props.stateStore.taskReducer.categoryTasks;
+      } else if (this.props.type === 'calendar') {
+         tasks = this.props.stateStore.taskReducer.calendarTasks;
+      }
       let taskObj;
       tasks.forEach((item, key)=> {
          if (!taskObj && item['id'] === taskId) {
@@ -91,9 +96,10 @@ class Tasks extends Component {
    editTask (name) {
       if (name) {
          let taskId = +this.state.editTaskId;
+         //let taskObj = JSON.parse(JSON.stringify(this.taskFinder(taskId)));
          let taskObj = this.taskFinder(taskId);
          taskObj['text'] = name;
-         TasksController.editTask(taskObj);
+         TasksController.editTask(taskObj, this.props.type);
       }
    }
 
@@ -214,8 +220,14 @@ class Tasks extends Component {
    }
 
    render() {
-      const stateStore = this.props.stateStore.taskReducer;
       const calendarStore = this.props.stateStore.calendarReducer;
+      const tasksStore = this.props.stateStore.taskReducer;
+      const categoryReducer = this.props.stateStore.categoryReducer;
+
+      /*if (categoryReducer.categoryWasChoosen) {
+         this.props.loadTasksByCategory(+categoryReducer.choosenCategory);
+      }*/
+
       return (
          <div className="defaultBlock tasks">
             <div className="defaultBlock__title">
@@ -223,11 +235,11 @@ class Tasks extends Component {
                   { this.props.type === 'category' && 'Задачи' }
                   {
                      this.props.type === 'calendar' && calendarStore.calendarDate &&
-                     (calendarStore.calendarDate.getDate() + '-' + (calendarStore.calendarDate.getMonth() + 1) + '-' + calendarStore.calendarDate.getFullYear())
+                     (calendarStore.calendarDate.getDate() + '.' + (calendarStore.calendarDate.getMonth() + 1) + '.' + calendarStore.calendarDate.getFullYear())
                   }
                </div>
                {
-                  this.props.type === 'category' && this.props.stateStore.categoryReducer.choosenCategory &&
+                  this.props.type === 'category' && categoryReducer.choosenCategory &&
                   <div
                   className="defaultBlock__button add-btn"
                   onClick={ this.showPopUp.bind(this, 'addTask') }>
@@ -236,12 +248,12 @@ class Tasks extends Component {
             </div>
             <div className="defaultBlock__items">
                {
-                  this.props.type === 'category' && stateStore.categoryTasks &&
-                  this.makeTasksView(stateStore.categoryTasks)
+                  this.props.type === 'category' && tasksStore.categoryTasks &&
+                  this.makeTasksView(tasksStore.categoryTasks)
                }
                {
-                  this.props.type === 'calendar' && stateStore.calendarTasks &&
-                  this.makeTasksView(stateStore.calendarTasks)
+                  this.props.type === 'calendar' && tasksStore.calendarTasks &&
+                  this.makeTasksView(tasksStore.calendarTasks)
                }
             </div>
          </div>

@@ -8,6 +8,22 @@ const defaultState = {
 };
 
 export default function (state = defaultState, action) {
+   if (action.type === 'TASK_CHANGED') {
+      state.categoryTasks.forEach((task, id) =>{
+         if (task['id'] === action.payload['id']) {
+            for (var key in task) {
+               task[key] = action.payload[key];
+            }
+         }
+      });
+      state.calendarTasks.forEach((task, id) =>{
+         if (task['id'] === action.payload['id']) {
+            for (var key in task) {
+               task[key] = action.payload[key];
+            }
+         }
+      });
+   }
    if (action.type === 'TASK_DELTED') {
       state.deletedTasks.push(action.payload);
    }
@@ -29,9 +45,11 @@ export default function (state = defaultState, action) {
    }
    if (action.type === 'ON_LOAD_TASKS_BY_CATEGORY') {
       state.categoryTasks = action.payload;
+      state.tasksCalendarChanged = false;
    }
    if (action.type === 'ON_LOAD_TASKS_BY_DATE') {
-      state.calendarTasks = action.payload['currentTasks'];
+      state.calendarTasks = action.payload;
+      state.tasksCategoryChanged = false;
    }
    if (action.type === 'TASK_DELETED') {
       state.categoryTasks = state.categoryTasks.filter((oneTask) => {

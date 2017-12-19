@@ -29,10 +29,10 @@ class CalendarController extends RequestController {
     */
    getTasksByDate (date) {
       // here now we get all task with shedule, but this is wrong
-      this.url('http://localhost:8080/mdt/category/getAllTasksByDate');
+      this.url('http://localhost:8080/mdt/category/getAllTasksByDate/' + date);
       this.resopnseType('GET');
 
-      this.makeRequest().then(
+      this.makeRequest(date).then(
          result=>this.getCalendarTasksCallback(result, date),
          error => console.log (error)
       );
@@ -43,32 +43,9 @@ class CalendarController extends RequestController {
     * now we parse result to get dates with tasks, then get tasks
     */
    getCalendarTasksCallback (result, date) {
-      let datesWithTasks = [];
-      let currentTasks = [];
-      let curDate = date.getDate();
-      let curMonth = date.getMonth();
-      let curYear = date.getFullYear();
-      let tempDateArray;
-      let tempDate;
-
-      result.forEach((item, key)=> {
-         tempDateArray = item['date'].split('-');
-         tempDate = new Date(item['date']);
-         datesWithTasks.push(tempDate);
-
-         if ((+tempDateArray[2]) === curDate && (+tempDateArray[1]) === curMonth && (+tempDateArray[0]) === curYear) {
-            item['tasks'].forEach((task)=> {
-               currentTasks.push(task);
-            });
-         }
-      });
-
       this.dispatch({
          type: 'ON_LOAD_TASKS_BY_DATE',
-         payload: {
-            currentTasks: currentTasks,
-            datesWithTasks: datesWithTasks
-         }
+         payload: result
       });
    }
 
