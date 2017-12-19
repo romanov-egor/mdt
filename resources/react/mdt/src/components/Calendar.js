@@ -111,8 +111,10 @@ class Calendar extends Component {
     */
    componentWillMount () {
       let date = new Date();
+      let formatDate = strftime('%Y-%m-%d', date);
       this.changeCalendarDate(date);
-      this.props.getTasksByDate(strftime('%Y-%m-%d', date));
+      this.props.getTasksByDate(formatDate);
+      this.props.getDatesWithTasksByMonth(formatDate);
    }
 
    /**

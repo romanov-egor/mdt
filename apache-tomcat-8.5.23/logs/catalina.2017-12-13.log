@@ -1,0 +1,24 @@
+13-Dec-2017 12:17:29.426 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mdt]
+13-Dec-2017 12:17:29.426 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [mdt] registered the JDBC driver [org.h2.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+13-Dec-2017 12:17:29.585 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+13-Dec-2017 12:17:33.128 INFO [localhost-startStop-2] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13-Dec-2017 12:17:33.238 INFO [localhost-startStop-2] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+13-Dec-2017 12:17:33.238 INFO [localhost-startStop-2] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+13-Dec-2017 12:17:33.317 INFO [localhost-startStop-2] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+13-Dec-2017 12:17:33.693 INFO [localhost-startStop-2] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13-Dec-2017 12:17:35.628 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [6,043] ms
+13-Dec-2017 12:17:36.833 INFO [http-nio-8080-exec-4] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService HHH000397: Using ASTQueryTranslatorFactory
+13-Dec-2017 12:28:16.072 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mdt]
+13-Dec-2017 12:28:16.072 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [mdt] registered the JDBC driver [org.h2.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+13-Dec-2017 12:28:16.123 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war]
+13-Dec-2017 12:28:18.592 INFO [localhost-startStop-3] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13-Dec-2017 12:28:18.722 INFO [localhost-startStop-3] org.hibernate.Version.logVersion HHH000412: Hibernate Core {5.2.10.Final}
+13-Dec-2017 12:28:18.722 INFO [localhost-startStop-3] org.hibernate.cfg.Environment.<clinit> HHH000206: hibernate.properties not found
+13-Dec-2017 12:28:18.785 INFO [localhost-startStop-3] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+13-Dec-2017 12:28:19.144 INFO [localhost-startStop-3] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13-Dec-2017 12:28:21.457 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\ITMO\Гибкие методологии\mdt\apache-tomcat-8.5.23\webapps\mdt.war] has finished in [5,334] ms
+13-Dec-2017 12:28:22.171 INFO [http-nio-8080-exec-19] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator.initiateService HHH000397: Using ASTQueryTranslatorFactory

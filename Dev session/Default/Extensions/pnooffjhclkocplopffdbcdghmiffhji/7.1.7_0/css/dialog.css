@@ -1,0 +1,192 @@
+.dialog {
+    font-family: "Helvetica Neue", Arial, Tahoma, sans-serif;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    z-index: 103;
+}
+
+.dialog .space {
+    height: 50%;
+}
+
+.dialog .dialog-body {
+    position: relative;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: -300px;
+    width: 420px;
+    height1: 600px;
+    background: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.dialog .content > .head {
+    font-family: Verdana;
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.dialog .field {
+    font-family: "Helvetica Neue", Arial, Tahoma, sans-serif;
+}
+
+.dialog .caption {
+    font-size: 18px;
+}
+
+.dialog .label {
+    margin-top: 15px;
+    margin-bottom: 3px;
+    font-size: 12px;
+}
+
+.dialog .buttons {
+    margin-top: 15px;
+    text-align: right;
+    font: 13px/16px "Helvetica Neue", Arial, Tahoma, sans-serif;
+}
+
+.dialog.remove .dialog-body {
+    width: 460px;
+    height: 100px;
+    visibility: hidden;
+}
+
+.remove .fields > .buttons > input {
+    display: inline-block;
+    margin: 0 -1px 0 5px;
+}
+
+.dialog.edit .dialog-body {
+    width: 500px;
+    height: 440px;
+    visibility: hidden;
+}
+
+.edit .fields > input {
+    display: block;
+    width: 100%;
+    margin: 2px 0;
+    box-sizing: border-box;
+}
+
+
+.edit .fields > .buttons > input {
+    display: inline-block;
+    margin: 0 -1px 0 5px;
+}
+
+
+.edit .list {
+    -webkit-appearance: textarea;
+    border: 1px solid -webkit-control;
+    outline: -webkit-mini-control;
+
+    padding: 2px!important;
+    height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.edit .list .item {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    padding: 1px 0;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.edit .list .item:hover {
+    background: #eeeeee;
+}
+
+.edit .list .item > * {
+    display: inline-block;
+}
+.edit .list .item > .title {
+}
+.edit .list .item > .icon {
+    height: 16px;
+    width: 16px;
+    margin: 0 8px;
+    vertical-align: bottom;
+    background: url("../images/favicon.png") center center;
+}
+
+
+.edit .thumbnail,
+.edit .modes {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.edit .thumbnail {
+    border: 2px solid #ffffff;
+    height: 100px;
+    width: 150px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 8px #888888;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.edit .modes .mode {
+    padding: 2px 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+.edit .modes .mode > * {
+    display: inline;
+    color: blue;
+    border-bottom: 1px dotted blue;
+    font-size: 11px;
+}
+
+
+.edit .modes[mode="local"] .mode[mode="local"],
+.edit .modes[mode="remote"] .mode[mode="remote"],
+.edit .modes[mode="thumbnail"] .mode[mode="thumbnail"] {
+    background: #cccccc;
+    color: black;
+}
+
+.edit .modes[mode="local"] .mode[mode="local"] > *,
+.edit .modes[mode="remote"] .mode[mode="remote"] > *,
+.edit .modes[mode="thumbnail"] .mode[mode="thumbnail"] > * {
+    color: black;
+    border-bottom: 0px;
+    cursor: default;
+}
+
+.edit .modes .mode-settings {
+    display: none;
+}
+.edit .modes[mode="local"] .mode-settings[mode="local"],
+.edit .modes[mode="remote"] .mode-settings[mode="remote"],
+.edit .modes[mode="thumbnail"] .mode-settings[mode="thumbnail"] {
+    display: block;
+}
+
+
+.edit .refresh {
+    margin-top: 20px;
+    text-align: right;
+}
+.edit .refresh > * {
+    display: inline-block;
+}
+.edit .refresh select {
+    margin: 0 0 0 10px;
+}
+

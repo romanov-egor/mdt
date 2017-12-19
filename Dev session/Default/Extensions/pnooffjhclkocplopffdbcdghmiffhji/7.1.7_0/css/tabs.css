@@ -1,0 +1,141 @@
+/*pane*/
+.pane {
+    width: 100%;
+    background: rgba(38, 50, 60, 0.9);
+    margin-top: -31px;
+}
+
+.pane.active {
+    margin-top: -131px;
+}
+
+.pane > header {
+    height: 31px;
+    position: relative;
+}
+
+.pane > header .tumbler {
+    border-left: solid 1px #4b5761;
+    border-right: solid 1px #4b5761;
+    cursor: pointer;
+    width: 62px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 10%;
+    background: url(../images/pane-arrow.png) center -15px no-repeat;
+}
+
+.pane > header .history {
+    color: #ccc;
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 20%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    line-height: 31px;
+    padding: 0 22px 0 40px;
+    background: url(../images/clock.png) 10px center no-repeat;
+}
+
+
+.pane.active > header .tumbler {
+    background-position: center 8px;
+}
+
+.pane > header .tumbler:hover,
+.pane > header .history:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    -webkit-transition: background-color 0.3s;
+}
+
+.pane > section {
+    height: 100px;
+    background-color: #dddee0;
+    -webkit-user-select: none;
+}
+
+.pane:not(.active) > section {
+    height: 0px;
+    overflow: hidden;
+}
+
+
+
+/*tabs*/
+.nav-tabs {
+    list-style: none;
+    margin-left: 60px;
+    margin-top: -26px;
+    position: absolute;
+}
+
+.nav-tabs > li {
+    float: left;
+    height: 26px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 1px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.nav-tabs > li:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    -webkit-transition: background-color 0.3s;
+}
+
+.nav-tabs > li.active {
+    background-color: #dddee0;
+}
+
+.nav-tabs > li > a {
+    color: #fff;
+    cursor: pointer;
+    padding:0 12px 0 12px;
+    text-decoration: none;
+}
+
+.nav-tabs > li.active > a {
+    cursor: default;
+    color: #5b6166;
+    font-weight: bold;
+}
+
+.tab-pane {
+    border: solid 0px transparent;
+}
+
+.tab-pane:not(.active) {
+    height: 0px;
+    overflow: hidden;
+}
+
+.pane:not(.active) .nav-tabs {
+    margin-top: -31px;
+}
+
+.pane:not(.active) .nav-tabs > li {
+    background-color: transparent;
+    cursor: pointer;
+    height: 31px;
+    line-height: 31px;
+}
+
+.pane:not(.active) .nav-tabs > li:hover {
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.07);
+    -webkit-transition: background-color 0.3s;
+}
+
+.pane:not(.active) .nav-tabs > li > a {
+    color: #fff;
+    font-weight: normal;
+    cursor: pointer;
+}

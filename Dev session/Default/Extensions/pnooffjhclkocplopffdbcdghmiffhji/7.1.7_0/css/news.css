@@ -1,0 +1,105 @@
+.grid__cell-news {
+    width: 68.7%;
+}
+.news_items {
+    background-color: rgba(38, 50, 60, 0.9);;
+    border-radius: 5px;
+    height: 161px;
+    position: relative;
+}
+.news_items_scroll{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 11px;
+    overflow: scroll;
+    position: relative;
+    height: 161px;
+}
+.news_items_wraper{
+    position: absolute;
+    white-space: nowrap;
+}
+.news_item {
+    position: relative;
+    display: inline-block;
+    width: 185px;
+    height: 138px;
+    margin-right: 1px;
+    cursor: pointer;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.news_title {
+    position: absolute;
+    bottom: 0px;
+    width: 185px;
+    overflow: hidden;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(50%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0.80)));
+}
+.news_title h3{
+    color: #ffffff;
+    padding: 5px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /*Georgia, 'Times New Roman', Times, serif;*/
+    font-size: 1em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: auto;
+    line-height: 1.125em;
+    margin-top: 5px;
+}
+.news_back, .news_next {
+    position: absolute;
+    width: 21px;
+    height: 161px;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 15px;
+    color: rgba(0,0,0, 0.6);
+    -webkit-user-select: none;
+}
+.news_back.disabled, .news_next.disabled{
+    cursor: default;
+}
+.news_back.disabled:hover span{
+    background-position: -0px -0px;
+}
+.news_next.disabled:hover span{
+    background-position: -43px -0px;
+}
+.news_back span, .news_next span{
+    display: block;
+    width: 19px;
+    height: 25px;
+    background-image: url(../images/leftright.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    margin-top: -11px;
+}
+.news_back span{
+    background-position: -0px -0px;
+    margin-left: 4px;
+}
+.news_next span{
+    background-position: -43px -0px;
+}
+.news_back {
+    left: 1.4%;
+/*    background: rgba(40, 40, 40, 0.9);*/
+    background-color: rgba(38, 50, 60, 0);
+    border-radius: 5px 0px 0px 5px;
+}
+.news_next {
+    right: 1.2%;
+/*    background: rgba(153, 153, 153, 0.8);*/
+    background-color: rgba(38, 50, 60, 0);
+    border-radius: 0px 5px 5px 0px;
+}
+.news_back:hover span{
+    background-position: -0px -36px;
+}
+.news_next:hover span{
+    background-position: -43px -36px;
+}
