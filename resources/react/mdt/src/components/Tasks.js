@@ -85,7 +85,7 @@ class Tasks extends Component {
             text: text,
             categoryId: +this.props.stateStore.categoryReducer.choosenCategory,
             done: false,
-            scheduled: true,
+            scheduled: false,
             scheduleDate: new Date().toISOString().slice(0,10)
          });
       }

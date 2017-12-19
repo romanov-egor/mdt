@@ -107,10 +107,10 @@ public class CategoryRest {
     }
 
     @RequestMapping(path = "/getAllScheduledDatesByMonth/{firstDateOfMonth}", method = RequestMethod.GET)
-    public ResponseEntity<List<DateWebModel>> getAllScheduledDatesByMonth(@PathVariable String firstDateOfMonth) {
+    public ResponseEntity<List<String>> getAllScheduledDatesByMonth(@PathVariable String firstDateOfMonth) {
         List<TaskWebModel> taskWebModels = taskService.getAllByScheduled(true);
         taskWebModels.removeIf(p -> p.getScheduleDate() == null);
-        List<DateWebModel> result = new ArrayList<DateWebModel>();
+        List<String> result = new ArrayList<String>();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date dateFromRequest = null;
         try {
@@ -123,15 +123,15 @@ public class CategoryRest {
                 Date taskScheduledDate = dateFormat.parse(taskWebModel.getScheduleDate());
                 cal.setTime(taskScheduledDate);
                 if (requestMonth == cal.get(Calendar.MONTH) && requestYear == cal.get(Calendar.YEAR)) {
-                    if (!result.stream().filter(p -> p.getDate().equals(taskWebModel.getScheduleDate())).findAny().isPresent()) {
-                        result.add(new DateWebModel(taskWebModel.getScheduleDate()));
+                    if (!result.stream().filter(p -> p.equals(taskWebModel.getScheduleDate())).findAny().isPresent()) {
+                        result.add(taskWebModel.getScheduleDate());
                     }
                 }
             }
         } catch (ParseException e) {
             e.printStackTrace();
-            return new ResponseEntity<List<DateWebModel>>(new ArrayList<DateWebModel>(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<List<String>>(new ArrayList<String>(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<List<DateWebModel>>(result, HttpStatus.OK);
+        return new ResponseEntity<List<String>>(result, HttpStatus.OK);
     }
 }
