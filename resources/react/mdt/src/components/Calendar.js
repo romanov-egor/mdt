@@ -146,6 +146,7 @@ class Calendar extends Component {
       let newMonth = prev ? curMonth - 1 : curMonth + 1;
       curDate = new Date(curDate.setMonth(newMonth));
       this.setState({'currentDate': curDate});
+      this.props.getDatesWithTasksByMonth(strftime('%Y-%m-%d', curDate), false);
    }
 
    /**
