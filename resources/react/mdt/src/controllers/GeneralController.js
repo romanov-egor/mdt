@@ -38,10 +38,12 @@ class GeneralController {
    findParentElemtByClassName (startNode, cssClass, depth) {
       let resultNode;
       let cycleDepth = 0;
+      let tempArray = [];
       depth = depth || 0;
 
       const finder = function (target, cssClass) {
-         if (!!~target.className.indexOf(cssClass) && (cycleDepth < depth)) {
+         tempArray = target.className.split(' ');
+         if (!tempArray.some((item)=>{ return item === cssClass }) && (cycleDepth < depth)) {
             finder(target.parentNode, cssClass);
             ++cycleDepth;
          } else {

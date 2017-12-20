@@ -29,7 +29,7 @@ class Tasks extends Component {
       let calendarDate = this.props.stateStore.calendarReducer.calendarDate;
 
       if (strftime('%Y-%m-%d', calendarDate) < strftime('%Y-%m-%d', new Date())) {
-         alert ('Нельзя мазафака');
+         alert ('Планирование задач на прошедшую дату запрещено');
          return;
       }
 
@@ -76,13 +76,14 @@ class Tasks extends Component {
 
    /**
     * Add task
-    * @param {String} text
+    * @param {Object} taskObj task data
     */
-   addTask (text) {
-      if (text) {
+   addTask (taskObj) {
+      if (taskObj) {
          TasksController.addTask({
             id: null,
-            text: text,
+            text: taskObj.inputValue,
+            workflowActionType: taskObj.selectValue || 'reschedule',
             categoryId: +this.props.stateStore.categoryReducer.choosenCategory,
             done: false,
             scheduled: false,
@@ -124,13 +125,14 @@ class Tasks extends Component {
 
    /**
     * Edit task name
-    * @return {String} name
+    * @return {Object} popUpData
     */
-   editTask (name) {
-      if (name) {
+   editTask (popUpData) {
+      if (popUpData) {
          let taskId = +this.state.editTaskId;
          let taskObj = this.taskFinder(taskId);
-         taskObj['text'] = name;
+         taskObj['text'] = popUpData.inputValue;
+         taskObj['workflowActionType'] = popUpData.selectValue;
          TasksController.editTask(taskObj, this.props.type);
       }
    }
@@ -140,10 +142,6 @@ class Tasks extends Component {
     * @param  {Object} e
     */
    onTaskClick (type, e) {
-      if (this._dargElement) {
-         this._dargElement = false;
-         return;
-      }
       let target = e.target;
       if (target.getAttribute('data-blocktype') === 'btn') {
          return;
@@ -154,6 +152,7 @@ class Tasks extends Component {
       let taskName = target.innerText;
       this.setState({'editTaskId': taskId});
       this.props.setTaskNameForEdit(taskName);
+      this.props.setSelectValueForPopUp(this.taskFinder(+taskId)['workflowActionType']);
       this.props.showPopUp(type, this.editTask.bind(this));
    }
 
@@ -196,7 +195,7 @@ class Tasks extends Component {
          result.push(
             <div
             title={ item.text }
-            className={'defaultBlock__one-item ' + (item.scheduled ? 'scheduled' : '') }
+            className={'defaultBlock__one-item ' + (item.scheduled || item.done ? 'scheduled' : '') }
             data-itemid={ item.id }
             onClick={ this.onTaskClick.bind(this, 'editTask') }
             onMouseEnter={ this.onTaskMouseOver.bind(this) }
@@ -210,7 +209,7 @@ class Tasks extends Component {
                      this.props.type === 'category' && this.state && this.state.buttons[item.id] &&
                      <div>
                         {
-                           !item.scheduled &&
+                           (!item.scheduled && !item.done) &&
                            <div
                            className='schedule'
                            data-itemid={ item.id }
@@ -235,12 +234,15 @@ class Tasks extends Component {
                   {
                      this.props.type === 'calendar' && this.state && this.state.buttons[item.id] &&
                      <div>
-                        <div
-                        className='not-done-item'
-                        data-itemid={ item.id }
-                        data-blocktype='btn'
-                        onClick={ this.notScheduleTask.bind(this) }>
-                        </div>
+                        {
+                           !item.done &&
+                           <div
+                           className='not-done-item'
+                           data-itemid={ item.id }
+                           data-blocktype='btn'
+                           onClick={ this.notScheduleTask.bind(this) }>
+                           </div>
+                        }
                      </div>
                   }
                </div>

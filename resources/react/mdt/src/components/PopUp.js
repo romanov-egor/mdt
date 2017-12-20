@@ -63,17 +63,38 @@ class PopUp extends Component {
       let store = this.props.stateStore.popUpReducer;
       let result = [];
 
-      if (store.popUpType === 'editTask' || store.popUpType === 'addTask') {
+      if (store.popUpType === 'addTask') {
          result.push(
             <div key="taskActionSelect" className="taskActionSelect">
                <div className="taskActionSelect__description">
                   Действие, <br /> если задача не была выполнена в срок
                </div>
                <div className="taskActionSelect__select">
-                  <select>
-                     <option value="Перенести задачу на следующий день" >Перенести задачу на следующий день</option>
-                     <option value="Удалить задачу">Удалить задачу</option>
-                     <option value="Убрать задачу из плана, но не удалять">Убрать задачу из плана, но не удалять</option>
+                  <select
+                  defaultValue="reschedule"
+                  onChange={ this.onChageAdditionalValue.bind(this) }>
+                     <option value="reschedule" >Перенести задачу на следующий день</option>
+                     <option value="delete">Удалить задачу</option>
+                     <option value="deschedule">Убрать задачу из плана, но не удалять</option>
+                  </select>
+               </div>
+            </div>
+         );
+      }
+
+      if (store.popUpType === 'editTask') {
+         result.push(
+            <div key="taskActionSelect" className="taskActionSelect">
+               <div className="taskActionSelect__description">
+                  Действие, <br /> если задача не была выполнена в срок
+               </div>
+               <div className="taskActionSelect__select">
+                  <select
+                  defaultValue={ (this.state && this.state.selectValue) || store.popUpSelectValue }
+                  onChange={ this.onChageAdditionalValue.bind(this) }>
+                     <option value="reschedule" >Перенести задачу на следующий день</option>
+                     <option value="delete">Удалить задачу</option>
+                     <option value="deschedule">Убрать задачу из плана, но не удалять</option>
                   </select>
                </div>
             </div>
@@ -89,10 +110,20 @@ class PopUp extends Component {
       });
    }
 
+   onChageAdditionalValue (e) {
+      this.setState({
+         selectValue: e.target.value
+      });
+   }
+
    onSave (e) {
       let store = this.props.stateStore.popUpReducer;
+      let saveObject = {
+         inputValue: (this.state && this.state.inputValue) || store.popUpInputText,
+         selectValue: (this.state && this.state.selectValue) || store.popUpSelectValue
+      }
       if ((this.state && this.state.inputValue) || store.popUpInputText) {
-         this.props.onSaveHandler((this.state && this.state.inputValue) || store.popUpInputText);
+         this.props.onSaveHandler(saveObject);
       } else {
          alert ('Название обязательно для заполнения');
       }

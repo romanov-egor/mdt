@@ -1,9 +1,10 @@
 .defaultBlock__one-item {
    border: 1px solid #CCC;
-   height: 40px;
-   padding-left: 2%;
+   min-height: 40px;
+   padding-left: 8px;
    display: flex;
    justify-content: center;
+   align-items: center;
 }
 .defaultBlock__one-item * {
    box-sizing: border-box;

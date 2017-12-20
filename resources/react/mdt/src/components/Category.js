@@ -11,9 +11,9 @@ class Categories extends Component {
     * Add category
     * @param {String} name
     */
-   addCategory (name) {
-      if (name) {
-         CategoriesController.addCategory(name);
+   addCategory (categoryObj) {
+      if (categoryObj.inputValue) {
+         CategoriesController.addCategory(categoryObj.inputValue);
       }
    }
 
@@ -21,9 +21,9 @@ class Categories extends Component {
     * Edit category name
     * @param {String} name
     */
-   editCategory (name) {
-      if (name) {
-         CategoriesController.editCategory(name, +this.state.editCategoryId);
+   editCategory (categoryObj) {
+      if (categoryObj.inputValue) {
+         CategoriesController.editCategory(categoryObj.inputValue, +this.state.editCategoryId);
       }
    }
 
@@ -82,7 +82,7 @@ class Categories extends Component {
       let target = CategoriesController.findParentElemtByAttribute(e.target, 'data-itemid', 2);
       let categoryKey = target.getAttribute('data-itemid');
       let stateButtons = this.state ? this.state.buttons : {};
-      stateButtons[categoryKey] = stateButtons[categoryKey] ? !stateButtons[categoryKey] : true;
+      stateButtons[categoryKey] = e.type !== 'mouseleave';
       this.setState({'buttons': stateButtons});
    }
 

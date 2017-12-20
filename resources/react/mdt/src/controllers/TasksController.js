@@ -9,6 +9,7 @@ class Tasks extends RequestController {
 
       this.dispatcherObj = {
          setTaskNameForEdit: this.setTaskNameForPopUp.bind(this),
+         setSelectValueForPopUp: this.setSelectValueForPopUp.bind(this),
          showPopUp: this.showPopUp.bind(this),
          addDragElement: this.addDragElement.bind(this)
       }
@@ -65,6 +66,17 @@ class Tasks extends RequestController {
       this.dispatch({
          type: 'SET_POPUP_INPUT_TEXT',
          payload: taskName
+      });
+   }
+
+   /**
+    * Set select value to pop-up
+    * @param {String} selectValue
+    */
+   setSelectValueForPopUp (selectValue) {
+      this.dispatch({
+         type: 'SET_POPUP_SELECT_VALUE',
+         payload: selectValue
       });
    }
 

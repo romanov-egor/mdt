@@ -1,7 +1,8 @@
 const defaultState = {
    calendarDate: null,
    datesWithTasks: null,
-   loadCalendarTasks: false
+   loadCalendarTasks: false,
+   loadDatesWithTasks: false
 };
 
 export default function (state = defaultState, action) {
@@ -16,6 +17,7 @@ export default function (state = defaultState, action) {
    }
    if (action.type === 'ON_LOAD_CALENDAR_DAYS_WITH_TASKS') {
       state.datesWithTasks = action.payload;
+      state.loadDatesWithTasks = true;
    }
 
    return Object.assign({}, state);

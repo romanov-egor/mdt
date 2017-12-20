@@ -9,14 +9,14 @@ const defaultState = {
 
 export default function (state = defaultState, action) {
    if (action.type === 'TASK_CHANGED') {
-      state.categoryTasks.forEach((task, id) =>{
+      state.categoryTasks && state.categoryTasks.forEach((task, id) =>{
          if (task['id'] === action.payload['id']) {
             for (var key in task) {
                task[key] = action.payload[key];
             }
          }
       });
-      state.calendarTasks.forEach((task, id) =>{
+      state.calendarTasks && state.calendarTasks.forEach((task, id) =>{
          if (task['id'] === action.payload['id']) {
             for (var key in task) {
                task[key] = action.payload[key];
