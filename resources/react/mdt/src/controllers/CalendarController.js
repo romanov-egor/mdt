@@ -19,10 +19,10 @@ class CalendarController extends RequestController {
     * @return {}
     */
    getDatesWithTasksByMonth (date) {
-      this.url('localhost:8080/mdt/category/getAllScheduledDatesByMonth/' + date);
+      this.url('http://localhost:8080/mdt/category/getAllScheduledDatesByMonth/' + date);
       this.resopnseType('GET');
 
-      this.makeRequest(date).then(
+      this.makeRequest().then(
          result=>this.saveDatesWithTasks(result),
          error => console.log (error)
       );
@@ -58,7 +58,7 @@ class CalendarController extends RequestController {
       this.url('http://localhost:8080/mdt/category/getAllTasksByDate/' + date);
       this.resopnseType('GET');
 
-      this.makeRequest(date).then(
+      this.makeRequest().then(
          result=>this.getCalendarTasksCallback(result, date),
          error => console.log (error)
       );
