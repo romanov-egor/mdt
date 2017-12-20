@@ -21,8 +21,15 @@
    flex-basis: 18%;
 }
 .defaultBlock.tasks.calendar .defaultBlock__one-item__title {
-   flex-basis: 90%;
+   flex-basis: 82%;
 }
 .defaultBlock.tasks.calendar .defaultBlock__one-item__buttons {
+   flex-basis: 18%;
+}
+
+.defaultBlock.tasks.calendar .defaultBlock__one-item.scheduled .defaultBlock__one-item__title {
+   flex-basis: 90%;
+}
+.defaultBlock.tasks.calendar .defaultBlock__one-item.scheduled .defaultBlock__one-item__buttons {
    flex-basis: 10%;
 }
