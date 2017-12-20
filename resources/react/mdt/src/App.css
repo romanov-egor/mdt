@@ -56,17 +56,11 @@ section.main-block {
 .edit-item,
 .done-item,
 .not-done-item,
-.delete-item,
-.not-schedule {
+.delete-item {
    width: 20px;
    height: 20px;
    background-size: 100%;
    background-repeat: no-repeat;
-}
-
-.not-schedule {
-   width: 24px;
-   height: 24px;
 }
 
 .add-btn {
@@ -93,12 +87,6 @@ section.main-block {
 }
 .not-done-item {
    background-image: url(./img/not-done.png);
-}
-.not-schedule {
-   background-image: url(./img/arrow.png);
-   -webkit-transform: rotate(180deg);
-   -ms-transform: rotate(180deg);
-   transform: rotate(180deg);
 }
 .delete-item {
    background-image: url(./img/delete.png);
