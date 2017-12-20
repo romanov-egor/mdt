@@ -18,12 +18,12 @@ class CalendarController extends RequestController {
     * Look to method name...
     * @return {}
     */
-   getDatesWithTasksByMonth (date) {
+   getDatesWithTasksByMonth (date, getTasksByThisDate) {
       this.url('http://localhost:8080/mdt/category/getAllScheduledDatesByMonth/' + date);
       this.resopnseType('GET');
 
       this.makeRequest().then(
-         result=>this.saveDatesWithTasks(result, date),
+         result=>this.saveDatesWithTasks(result, date, getTasksByThisDate),
          error => console.log (error)
       );
    }
@@ -33,12 +33,14 @@ class CalendarController extends RequestController {
     * @param  {Array} result - dates
     * @param  {String} date - month date
     */
-   saveDatesWithTasks (result, date) {
+   saveDatesWithTasks (result, date, getTasksByThisDate) {
       this.dispatch({
          type: 'ON_LOAD_CALENDAR_DAYS_WITH_TASKS',
          payload: result
       });
-      this.getTasksByDate(date);
+      if (getTasksByThisDate) {
+         this.getTasksByDate(date);
+      }
    }
 
    /**

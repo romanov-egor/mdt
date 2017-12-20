@@ -2,7 +2,8 @@ const defaultState = {
    calendarDate: null,
    datesWithTasks: null,
    loadCalendarTasks: false,
-   loadDatesWithTasks: false
+   loadDatesWithTasks: false,
+   needToLoadColore: false
 };
 
 export default function (state = defaultState, action) {
@@ -18,6 +19,10 @@ export default function (state = defaultState, action) {
    if (action.type === 'ON_LOAD_CALENDAR_DAYS_WITH_TASKS') {
       state.datesWithTasks = action.payload;
       state.loadDatesWithTasks = true;
+      state.needToLoadColore = false;
+   }
+   if (action.type === 'TASK_CHANGED') {
+      state.needToLoadColore = true;
    }
 
    return Object.assign({}, state);
