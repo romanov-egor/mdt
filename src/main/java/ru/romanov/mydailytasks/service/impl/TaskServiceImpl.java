@@ -107,8 +107,8 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     @Transactional
-    @Scheduled(cron = "0/5 * * * * ?")
-    // (cron = "0 1 0 * * ?")
+    @Scheduled(cron = "0 1 0 * * ?")
+    // (cron = "0/5 * * * * ?")
     public void runWorkflowActionJob() {
         //System.out.println("Here i am!");
         Date now = new Date();
