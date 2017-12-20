@@ -18,7 +18,7 @@ class Tasks extends Component {
       super();
       this._dargElement = false;
       this._timeout = false;
-      this.state = { 'buttons': [] }
+      this.state = { 'buttons': [], 'buttonsCalendar': [] }
    }
 
    /**
@@ -46,6 +46,13 @@ class Tasks extends Component {
    notScheduleTask (e) {
       let taskId = +e.target.getAttribute('data-itemid');
       let taskObj = this.taskFinder(taskId);
+      let stateButtons = this.state ? this.state['buttonsCalendar'] : {};
+      let result = {};
+
+      stateButtons[taskId] = false;
+      result['buttonsCalendar'] = stateButtons;
+      this.setState(result);
+
       taskObj['scheduled'] = false;
       TasksController.editTask(taskObj);
    }
@@ -161,11 +168,14 @@ class Tasks extends Component {
     * @param  {Object} e
     */
    onTaskMouseOver (e) {
+      let buttonsType = this.props.type === 'calendar' ? 'buttonsCalendar' : 'buttons';
       let target = TasksController.findParentElemtByAttribute(e.target, 'data-itemid', 2);
       let taskKey = target.getAttribute('data-itemid');
-      let stateButtons = this.state ? this.state.buttons : {};
+      let stateButtons = this.state ? this.state[buttonsType] : {};
+      let result = {};
       stateButtons[taskKey] = e.type !== 'mouseleave';
-      this.setState({'buttons': stateButtons});
+      result[buttonsType] = stateButtons;
+      this.setState(result);
    }
 
    /**
@@ -189,13 +199,14 @@ class Tasks extends Component {
     */
    makeTasksView (tasks) {
       let result = [];
+      let categoryTasks = this.props.type === 'category';
       let cssClassDone = '';
       tasks.map((item, key) => {
          cssClassDone = item['done'] ? 'taskDone' : '';
          result.push(
             <div
             title={ item.text }
-            className={'defaultBlock__one-item ' + (item.scheduled || item.done ? 'scheduled' : '') }
+            className={'defaultBlock__one-item ' + ((categoryTasks && (item.scheduled || item.done) || item.done) ? 'scheduled' : '') }
             data-itemid={ item.id }
             onClick={ this.onTaskClick.bind(this, 'editTask') }
             onMouseEnter={ this.onTaskMouseOver.bind(this) }
@@ -232,17 +243,23 @@ class Tasks extends Component {
                      </div>
                   }
                   {
-                     this.props.type === 'calendar' && this.state && this.state.buttons[item.id] &&
+                     this.props.type === 'calendar' && this.state && this.state.buttonsCalendar[item.id] &&
                      <div>
                         {
-                           !item.done &&
+                           !item['done'] &&
                            <div
-                           className='not-done-item'
+                           className='not-schedule'
                            data-itemid={ item.id }
                            data-blocktype='btn'
                            onClick={ this.notScheduleTask.bind(this) }>
                            </div>
                         }
+                        <div
+                        className={ (item['done'] && 'not-done-item') || 'done-item' }
+                        data-itemid={ item.id }
+                        data-blocktype='btn'
+                        onClick={ this.taskDoneOrNot.bind(this) }>
+                        </div>
                      </div>
                   }
                </div>

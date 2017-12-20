@@ -23,7 +23,7 @@ class CalendarController extends RequestController {
       this.resopnseType('GET');
 
       this.makeRequest().then(
-         result=>this.saveDatesWithTasks(result),
+         result=>this.saveDatesWithTasks(result, date),
          error => console.log (error)
       );
    }
@@ -33,11 +33,12 @@ class CalendarController extends RequestController {
     * @param  {Array} result - dates
     * @param  {String} date - month date
     */
-   saveDatesWithTasks (result) {
+   saveDatesWithTasks (result, date) {
       this.dispatch({
          type: 'ON_LOAD_CALENDAR_DAYS_WITH_TASKS',
          payload: result
       });
+      this.getTasksByDate(date);
    }
 
    /**
