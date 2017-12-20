@@ -19,6 +19,7 @@ class Calendar extends Component {
     * Make calendar days
     */
    makeDays () {
+      let daysWithTasks = this.props.stateStore.calendarReducer.datesWithTasks;
       let calendarDate = new Date(this.state.currentDate);
       let startDate = 1;
       let startDay = new Date(calendarDate.setDate(1)).getDay();
@@ -29,6 +30,7 @@ class Calendar extends Component {
       let date = new Date();
       let currentMonth = calendarDate.getMonth() === date.getMonth();
       let dayDate = new Date(this.state.currentDate).getDate();
+      let cssClassWithTask;
       let result = [];
 
       /**
@@ -80,6 +82,12 @@ class Calendar extends Component {
       }
 
       while (startDate <= endDate) {
+         if (daysWithTasks) {
+            let temDate = strftime('%Y-%m-%d', new Date(calendarDate.setDate(startDate)));
+            cssClassWithTask = daysWithTasks.some((item)=>{ return item === temDate }) ? 'withTasks ' : '';
+         } else {
+            cssClassWithTask = '';
+         }
          if (startDate === 1 && startDay !== 1) {
             addPrevDays().forEach((item, key)=> {
                result.push(item);
@@ -87,8 +95,8 @@ class Calendar extends Component {
          }
          result.push(
             <div
-            key={startDate + 'calendarDay'}
-            className= { 'defaultBlock__item-day ' + (currentMonth && (dayDate === startDate) ? 'current' : '') }
+            key={ startDate + 'calendarDay' }
+            className= { 'defaultBlock__item-day ' + cssClassWithTask + (currentMonth && (dayDate === startDate) ? 'current' : '') }
             data-day={ startDate }
             onClick={ this.onClickOnDay.bind(this) }>
                <div data-day={ startDate } className="day-num">{ startDate }
@@ -113,8 +121,8 @@ class Calendar extends Component {
       let date = new Date();
       let formatDate = strftime('%Y-%m-%d', date);
       this.changeCalendarDate(date);
-      this.props.getTasksByDate(formatDate);
-      //this.props.getDatesWithTasksByMonth(formatDate);
+      this.props.getDatesWithTasksByMonth(formatDate, true);
+      //this.props.getTasksByDate(formatDate);
    }
 
    /**
@@ -153,6 +161,9 @@ class Calendar extends Component {
       const calendarState = this.props.stateStore.calendarReducer;
       if (calendarState.loadCalendarTasks && this.state.currentDate) {
          this.props.getTasksByDate(strftime('%Y-%m-%d', this.state.currentDate));
+      }
+      if (calendarState.needToLoadColore && this.state.currentDate) {
+         this.props.getDatesWithTasksByMonth(strftime('%Y-%m-%d', this.state.currentDate), false);
       }
       return (
          <div className="defaultBlock calendar">
