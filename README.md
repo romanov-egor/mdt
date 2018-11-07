@@ -1,7 +1,7 @@
 # My Daily Tasks
 This project contains application for personal tasks management
 
-**Be careful! This project uses HSQLDB! It will try to create database files
+**Be careful! This project uses Hypersonic 2! It will try to create database files
 under D:/Work/MyDailyTasks-project/mdt/data/mdt-database during runtime! To change
 this path, go to src\main\resources\configuration\main.xml, rewrite path and rebuild**
 
