@@ -35,10 +35,7 @@ Open command line, go to project folder and execute
 Download any application server you like and deploy .war file you built
 
 ## Launch instructions
-After successful deployment open your favourite browser and go to http://localhost:8080
-
-Enter credentials:
-Login: user
-Password: user
+After successful deployment open your favourite browser and go to http://localhost:8080/mdt/react/.
+Enter credentials user/user.
 
 Enjoy!
